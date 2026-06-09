@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEN36 | Super Patch - Bien-être Naturel & Performance</title>
+    <meta name="description" content="Conseiller Super Patch - Découvrez la technologie vibrotactile révolutionnaire pour votre bien-être, performance et santé naturelle.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --turquoise: #1ABC9C;
+            --turquoise-dark: #16A085;
+            --turquoise-light: #48C9B0;
+            --blue: #2E86AB;
+            --dark-blue: #1B4F72;
+            --green: #27AE60;
+            --orange: #F39C12;
+            --yellow: #F1C40F;
+            --dark: #2C3E50;
+            --light: #ECF0F1;
+            --white: #FFFFFF;
+            --gradient-primary: linear-gradient(135deg, #1ABC9C 0%, #2E86AB 100%);
+            --gradient-gold: linear-gradient(135deg, #F39C12 0%, #F1C40F 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+            overflow-x: hidden;
+            background: var(--white);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(26, 188, 156, 0.4);
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1;
+        }
+
+        .logo-subtitle {
+            font-size: 0.75rem;
+            color: var(--turquoise);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--turquoise);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--gradient-primary);
+            color: white !important;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(26, 188, 156, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(26, 188, 156, 0.6);
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--dark);
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 90vh;
+            background: linear-gradient(135deg, rgba(26, 188, 156, 0.1) 0%, rgba(46, 134, 171, 0.1) 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(26, 188, 156, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(46, 134, 171, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -50px) rotate(120deg); }
+            66% { transform: translate(-20px, 30px) rotate(240deg); }
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .hero-content h1 span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--blue);
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--dark);
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 4px 20px rgba(26, 188, 156, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(26, 188, 156, 0.6);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--turquoise);
+            border: 2px solid var(--turquoise);
+        }
+
+        .btn-secondary:hover {
+            background: var(--turquoise);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .btn-gold {
+            background: var(--gradient-gold);
+            color: white;
+            box-shadow: 0 4px 20px rgba(243, 156, 18, 0.4);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(243, 156, 18, 0.6);
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-badge {
+            position: absolute;
+            background: white;
+            padding: 1.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            animation: float-badge 3s ease-in-out infinite;
+        }
+
+        @keyframes float-badge {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .badge-1 {
+            top: 10%;
+            left: 0;
+            animation-delay: 0s;
+        }
+
+        .badge-2 {
+            bottom: 15%;
+            right: 0;
+            animation-delay: 1.5s;
+        }
+
+        .badge-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .badge-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .badge-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .badge-label {
+            font-size: 0.85rem;
+            color: var(--blue);
+        }
+
+        .hero-main-image {
+            width: 100%;
+            max-width: 500px;
+            height: 500px;
+            background: var(--gradient-primary);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 8rem;
+            box-shadow: 0 20px 60px rgba(26, 188, 156, 0.4);
+            animation: morph 8s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes morph {
+            0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+            background: white;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--blue);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+            border-color: var(--turquoise);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: rotateY(360deg);
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .feature-text {
+            color: var(--dark);
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Technology Section */
+        .technology {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-blue) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .technology::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .technology .section-title {
+            color: white;
+        }
+
+        .technology .section-subtitle {
+            color: var(--turquoise-light);
+        }
+
+        .tech-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tech-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--turquoise-light);
+        }
+
+        .tech-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .tech-features {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .tech-features li {
+            padding: 0.8rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .tech-features i {
+            color: var(--turquoise);
+            font-size: 1.2rem;
+        }
+
+        .tech-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tech-circle {
+            width: 400px;
+            height: 400px;
+            border: 3px solid var(--turquoise);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+
+        .tech-circle-inner {
+            width: 300px;
+            height: 300px;
+            border: 3px solid var(--turquoise-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            background: rgba(26, 188, 156, 0.1);
+        }
+
+        /* About Preview */
+        .about-preview {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, rgba(26, 188, 156, 0.05) 0%, rgba(46, 134, 171, 0.05) 100%);
+        }
+
+        .about-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-image-container {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(26, 188, 156, 0.3);
+            border: 5px solid white;
+        }
+
+        .about-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            opacity: 0.9;
+        }
+
+        .signature {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--turquoise);
+            margin-top: 2rem;
+            font-style: italic;
+        }
+
+        /* Links Section */
+        .links-section {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .links-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .link-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: 2px solid transparent;
+        }
+
+        .link-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+            border-color: var(--turquoise);
+        }
+
+        .link-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .link-title {
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .link-desc {
+            font-size: 0.9rem;
+            color: var(--dark);
+            opacity: 0.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            background: var(--gradient-primary);
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand .logo-text .logo-title {
+            color: white;
+        }
+
+        .footer-brand p {
+            margin-top: 1rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--turquoise);
+            font-weight: 600;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--turquoise);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--turquoise);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container,
+            .tech-container,
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .page-loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 4px solid var(--light);
+            border-top-color: var(--turquoise);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <img src="assets/images/logo-ben36.png" alt="BEN36 Logo">
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">BEN36</span>
+                    <span class="logo-subtitle">Bien Être Naturel</span>
+                </div>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">À Propos</a></li>
+                <li><a href="products.html">Produits</a></li>
+                <li><a href="testimonials.html">Témoignages</a></li>
+                <li><a href="practitioners.html">Praticiens</a></li>
+                <li><a href="solutions.html">Solutions</a></li>
+                <li><a href="contact.html" class="nav-cta">Contact</a></li>
+            </ul>
+
+            <div class="mobile-menu" id="mobileMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content" data-aos="fade-right">
+                <h1>Découvrez la <span>Révolution</span> du Bien-être Naturel</h1>
+                <p class="hero-subtitle">Conseiller Super Patch - Coach en Marketing</p>
+                <p class="hero-description">
+                    Transformez votre quotidien avec la technologie vibrotactile de pointe. 
+                    Des patchs innovants, sans médicament ni produit chimique, qui activent 
+                    le potentiel naturel de votre corps et de votre esprit en quelques minutes.
+                </p>
+                <div class="hero-buttons">
+                    <a href="products.html" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Découvrir les Patchs
+                    </a>
+                    <a href="https://ben36.superpatch.com" target="_blank" class="btn btn-secondary">
+                        <i class="fas fa-external-link-alt"></i>
+                        Boutique Officielle
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-image" data-aos="fade-left">
+                <div class="hero-main-image">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                
+                <div class="hero-badge badge-1">
+                    <div class="badge-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="badge-text">
+                        <span class="badge-number">15 min</span>
+                        <span class="badge-label">Effet rapide</span>
+                    </div>
+                </div>
+                
+                <div class="hero-badge badge-2">
+                    <div class="badge-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="badge-text">
+                        <span class="badge-number">100%</span>
+                        <span class="badge-label">Naturel & Safe</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Pourquoi Choisir Super Patch ?</span>
+                <h2 class="section-title">Une Technologie Révolutionnaire</h2>
+                <p class="section-subtitle">
+                    La vibrotactile technology qui change des vies depuis plus de 15 ans
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="feature-title">Le Braille pour le Cerveau</h3>
+                    <p class="feature-text">
+                        Des motifs de crêtes uniques qui stimulent les récepteurs cutanés et envoient 
+                        des signaux neuronaux précis à votre système nerveux pour optimiser vos performances.
+                    </p>
+                </div>
+
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3 class="feature-title">100% Naturel & Sans Produit</h3>
+                    <p class="feature-text">
+                        Aucun médicament, aucun produit chimique. Juste une technologie de pointe 
+                        qui travaille avec l'intelligence naturelle de votre corps.
+                    </p>
+                </div>
+
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="feature-title">Résultats Immédiats</h3>
+                    <p class="feature-text">
+                        Ressentez les bienfaits en quelques minutes. Une solution rapide et efficace 
+                        pour votre bien-être quotidien, la gestion du stress et la performance.
+                    </p>
+                </div>
+
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="feature-title">15 Ans de R&D</h3>
+                    <p class="feature-text">
+                        Développé par Jay Dhaliwal avec 25 millions de dollars d'investissement 
+                        en recherche pour une technologie brevetée et validée scientifiquement.
+                    </p>
+                </div>
+
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="feature-title">Bien-être Global</h3>
+                    <p class="feature-text">
+                        Énergie, focus, sommeil, récupération, équilibre émotionnel... 
+                        Des solutions complètes pour tous les aspects de votre vie.
+                    </p>
+                </div>
+
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="feature-title">Reconnu Internationalement</h3>
+                    <p class="feature-text">
+                        Plus de 200 millions de dollars de chiffre d'affaires en 2025. 
+                        Une technologie plébiscitée par des milliers d'utilisateurs dans le monde.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="technology">
+        <div class="tech-container">
+            <div class="tech-content" data-aos="fade-right">
+                <span class="section-tag">Comment Ça Marche ?</span>
+                <h3>La Science derrière Super Patch</h3>
+                <p>
+                    La <strong>Technologie Vibrotactile (VTT)</strong> utilise des motifs de crêtes 
+                    précisément disposés qui, au contact de votre peau, activent une réponse 
+                    immédiate dans votre cerveau.
+                </p>
+                <p>
+                    Comme le braille pour les doigts, ces motifs sont lus par vos cellules cutanées 
+                    et transmis à votre système nerveux, permettant à votre corps d'optimiser 
+                    naturellement ses fonctions.
+                </p>
+                
+                <ul class="tech-features">
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span>Stimulation des récepteurs cutanés</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span>Activation du système nerveux</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span>Optimisation des performances naturelles</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span>Sans effet secondaire</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span>Approuvé FDA (dispositif médical)</span>
+                    </li>
+                </ul>
+
+                <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="https://youtu.be/FpdxVRp1vjQ" target="_blank" class="btn btn-gold">
+                        <i class="fas fa-play-circle"></i>
+                        Neuroplasticité
+                    </a>
+                    <a href="https://youtu.be/gHlrqesLWpU" target="_blank" class="btn btn-gold">
+                        <i class="fas fa-brain"></i>
+                        Rééduquer le Cerveau
+                    </a>
+                    <a href="https://youtu.be/I-L3B2-HD2Q" target="_blank" class="btn btn-gold">
+                        <i class="fas fa-user-tie"></i>
+                        Démo par Jay Dhaliwal
+                    </a>
+                </div>
+            </div>
+
+            <div class="tech-visual" data-aos="fade-left">
+                <div class="tech-circle">
+                    <div class="tech-circle-inner">
+                        <i class="fas fa-fingerprint"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cadeau Section -->
+    <section class="features" style="background: linear-gradient(135deg, rgba(26, 188, 156, 0.05) 0%, rgba(46, 134, 171, 0.05) 100%);">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Cadeaux Exclusifs</span>
+                <h2 class="section-title">Nos Offres Spéciales pour Vous</h2>
+                <p class="section-subtitle">
+                    Profitez de nos ressources gratuites pour transformer votre vie
+                </p>
+            </div>
+
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
+                    <!-- Guide Minceur -->
+                    <div style="background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 15px 50px rgba(0,0,0,0.1); text-align: center;" data-aos="zoom-in">
+                        <div style="font-size: 5rem; color: var(--turquoise); margin-bottom: 1.5rem;">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: var(--dark);">
+                            Livret Perte de Poids
+                        </h3>
+                        <p style="font-size: 1rem; margin-bottom: 2rem; color: var(--dark); opacity: 0.9;">
+                            Votre guide complet d'accompagnement à la perte de poids avec 
+                            Super Patch et les bonnes habitudes de vie pour des résultats durables.
+                        </p>
+                        <a href="https://maviepic.kneo.me/files/SUPER+PATCH/guide+minceur.pdf" 
+                           target="_blank" 
+                           class="btn btn-primary"
+                           style="font-size: 1rem; padding: 1rem 2rem;">
+                            <i class="fas fa-download"></i>
+                            Télécharger le PDF
+                        </a>
+                    </div>
+
+                    <!-- Documentaire LE SECRET -->
+                    <div style="background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 15px 50px rgba(0,0,0,0.1); text-align: center;" data-aos="zoom-in" data-aos-delay="200">
+                        <div style="font-size: 5rem; color: var(--orange); margin-bottom: 1.5rem;">
+                            <i class="fas fa-film"></i>
+                        </div>
+                        <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: var(--dark);">
+                            Documentaire "LE SECRET"
+                        </h3>
+                        <p style="font-size: 1rem; margin-bottom: 2rem; color: var(--dark); opacity: 0.9;">
+                            Longuement caché par nos ancêtres et enfin dévoilé. Découvrez comment 
+                            la puissance de la pensée positive et la connexion avec l'Univers 
+                            peuvent transformer votre santé et votre vie.
+                        </p>
+                        <a href="https://www.youtube.com/watch?v=ARku7PNVhYI" 
+                           target="_blank" 
+                           class="btn btn-gold"
+                           style="font-size: 1rem; padding: 1rem 2rem;">
+                            <i class="fas fa-play-circle"></i>
+                            Regarder le Documentaire
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Preview -->
+    <section class="about-preview">
+        <div class="about-container">
+            <div class="about-image" data-aos="zoom-in">
+                <div class="about-image-container">
+                    <img src="assets/images/photo-laurent.png" alt="Ben 36">
+                </div>
+            </div>
+
+            <div class="about-content" data-aos="fade-left">
+                <span class="section-tag">Qui Suis-Je ?</span>
+                <h2>Ben 36</h2>
+                <p>
+                    <strong>Conseiller en Marketing & Coach Bien-être Indépendant</strong>
+                </p>
+                <p>
+                    Passionné par le bien-être naturel et les technologies innovantes, j'accompagne 
+                    les particuliers et les professionnels dans leur quête de santé optimale grâce 
+                    à Super Patch.
+                </p>
+                <p>
+                    Basé dans l'Aisne (02), je mets mon expertise au service de votre transformation 
+                    personnelle et professionnelle. Mon approche combine conseil personnalisé, 
+                    accompagnement bienveillant et solutions concrètes adaptées à vos objectifs.
+                </p>
+                
+                <div style="margin-top: 2rem; padding: 1.5rem; background: white; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
+                    <h4 style="color: var(--turquoise); margin-bottom: 1rem; font-size: 1.2rem;">
+                        <i class="fas fa-lightbulb" style="margin-right: 0.5rem;"></i>
+                        Mes Autres Projets
+                    </h4>
+                    
+                    <div style="margin-bottom: 1.2rem;">
+                        <strong style="color: var(--dark);">🚀 Ben Manager Labs</strong>
+                        <p style="margin: 0.3rem 0 0 0; font-size: 0.95rem; opacity: 0.9;">
+                            Solutions digitales innovantes développées avec mon associé Léo. 
+                            Applications sur mesure, automatisation et intelligence artificielle 
+                            pour booster votre productivité.
+                        </p>
+                    </div>
+                    
+                    <div style="margin-bottom: 1.2rem;">
+                        <strong style="color: var(--dark);">🛍️ ATOMY</strong>
+                        <p style="margin: 0.3rem 0 0 0; font-size: 0.95rem; opacity: 0.9;">
+                            Produits de qualité premium à prix accessible. Cosmétiques, 
+                            compléments alimentaires et produits du quotidien pour toute la famille. 
+                            Une opportunité business unique.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <strong style="color: var(--dark);">📈 TAG (The Advertising Group)</strong>
+                        <p style="margin: 0.3rem 0 0 0; font-size: 0.95rem; opacity: 0.9;">
+                            Opportunités d'investissement et trading. Revenus passifs grâce à 
+                            la publicité digitale. Une révolution dans le monde du marketing 
+                            et de la finance.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="signature">Ben 36</div>
+
+                <div class="hero-buttons" style="margin-top: 2rem;">
+                    <a href="about.html" class="btn btn-primary">
+                        <i class="fas fa-user"></i>
+                        En Savoir Plus
+                    </a>
+                    <a href="contact.html" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i>
+                        Me Contacter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Links Section -->
+    <section class="links-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Mon Écosystème</span>
+                <h2 class="section-title">Découvrez Mes Autres Univers</h2>
+                <p class="section-subtitle">
+                    Des solutions complémentaires pour votre bien-être et votre réussite
+                </p>
+            </div>
+
+            <div class="links-grid">
+                <a href="https://maviia95.github.io/atomy-maviia95/" target="_blank" class="link-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="link-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <h3 class="link-title">ATOMY</h3>
+                    <p class="link-desc">Produits de qualité premium à prix accessible</p>
+                </a>
+
+                <a href="https://benmanager.kneo.me/home" target="_blank" class="link-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="link-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="link-title">BEN MANAGER LABS</h3>
+                    <p class="link-desc">Solutions digitales et applications innovantes</p>
+                </a>
+
+                <a href="https://maviia95.github.io/Aitech-Sonic/index.html" target="_blank" class="link-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="link-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="link-title">TAG</h3>
+                    <p class="link-desc">Opportunités d'investissement et trading</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content" data-aos="zoom-in">
+            <h2>Prêt à Transformer Votre Quotidien ?</h2>
+            <p>
+                Rejoignez des milliers de personnes qui ont déjà découvert les bienfaits 
+                de Super Patch. Je vous accompagne personnellement dans votre démarche.
+            </p>
+            <div class="hero-buttons" style="justify-content: center;">
+                <a href="contact.html" class="btn btn-secondary" style="font-size: 1.1rem; padding: 1.2rem 3rem;">
+                    <i class="fas fa-calendar-check"></i>
+                    Prendre Rendez-vous
+                </a>
+                <a href="https://bit.ly/SP-Boutique" target="_blank" class="btn btn-gold" style="font-size: 1.1rem; padding: 1.2rem 3rem;">
+                    <i class="fas fa-shopping-cart"></i>
+                    Commander Maintenant
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">
+                            <img src="assets/images/logo-ben36.png" alt="BEN36 Logo">
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-title">BEN36</span>
+                            <span class="logo-subtitle">Bien-être Naturel</span>
+                        </div>
+                    </a>
+                    <p>
+                        Conseiller Super Patch et Coach Bien-être indépendant. 
+                        Votre partenaire pour une vie plus saine et épanouie.
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:bienetrenaturel36@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="about.html">À Propos</a></li>
+                        <li><a href="products.html">Produits</a></li>
+                        <li><a href="testimonials.html">Témoignages</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Ressources</h4>
+                    <ul class="footer-links">
+                        <li><a href="practitioners.html">Praticiens</a></li>
+                        <li><a href="solutions.html">Solutions</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="https://bit.ly/SP-Boutique" target="_blank">Boutique</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Contact</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Aisne (02), France</li>
+                        <li><a href="mailto:bienetrenaturel36@gmail.com">bienetrenaturel36@gmail.com</a></li>
+                        <li><a href="tel:+33680244077">+33 6 80 24 40 77</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ben 36 - Ben Manager Labs. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Page Loader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('pageLoader').classList.add('hidden');
+            }, 500);
+        });
+
+        // Initialize AOS Animation Library
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile Menu Toggle (basic)
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenu.addEventListener('click', () => {
+            alert('Menu mobile - À implémenter avec un overlay complet');
+        });
+    </script>
+</body>
+</html>
