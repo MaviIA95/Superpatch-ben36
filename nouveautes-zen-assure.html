@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nouveautés Super Patch - ASSURE & ZEN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 3rem 2rem;
+        }
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 90px rgba(0,0,0,0.3);
+        }
+        .header {
+            background: linear-gradient(135deg, #1ABC9C 0%, #2E86AB 100%);
+            color: white;
+            padding: 3rem;
+            text-align: center;
+        }
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+        }
+        .badge {
+            display: inline-block;
+            background: #F39C12;
+            color: white;
+            padding: 0.5rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+        .patches-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            padding: 3rem;
+        }
+        .patch-showcase {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .patch-showcase.assure { border-top: 5px solid #74b9ff; }
+        .patch-showcase.zen { border-top: 5px solid #a29bfe; }
+        .patch-image {
+            width: 100%;
+            max-width: 300px;
+            height: 400px;
+            margin: 0 auto 2rem;
+            background: white;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .patch-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .patch-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2C3E50;
+        }
+        .patch-showcase.assure .patch-title { color: #0984e3; }
+        .patch-showcase.zen .patch-title { color: #6c5ce7; }
+        .tagline {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #636e72;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        .description {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #2d3436;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        .features {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        .features li {
+            padding: 0.8rem 0;
+            padding-left: 2.5rem;
+            position: relative;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .features li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: #1ABC9C;
+        }
+        .vtt-badge {
+            background: linear-gradient(135deg, #F39C12, #F1C40F);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: 700;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        .footer-note {
+            background: #2C3E50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 1.1rem;
+        }
+        .footer-note i { color: #1ABC9C; margin-right: 0.5rem; }
+        @media (max-width: 768px) {
+            .patches-grid { grid-template-columns: 1fr; }
+            .header h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-star"></i> NOUVEAUTÉS SUPER PATCH</h1>
+            <p>Découvrez nos deux derniers patchs propulsés par la technologie VTT 2.0</p>
+            <span class="badge">30 Patchs par Pack - 40% Plus Petit, Même Puissance !</span>
+        </div>
+
+        <div class="patches-grid">
+            <!-- ASSURE -->
+            <div class="patch-showcase assure">
+                <div class="patch-image">
+                    <img src="assets/images/patch-assure.jpg" alt="Super Patch Assure">
+                </div>
+                <h2 class="patch-title">ASSURE</h2>
+                <p class="tagline">"Soothe Like Never Before"</p>
+                <p class="description">
+                    <strong>Voyagez avec confort et confiance.</strong> Assure Super Patch réduit naturellement les nausées et sensations de malaise dues au mouvement, sans médicament ni somnolence.
+                </p>
+                <span class="vtt-badge"><i class="fas fa-bolt"></i> Propulsé par VTT 2.0</span>
+                <ul class="features">
+                    <li><strong>Anti-nausées naturel</strong> - Sans médicament, sans effet secondaire</li>
+                    <li><strong>Idéal voyage & mouvement</strong> - Restez stable en toutes circonstances</li>
+                    <li><strong>40% plus petit</strong> - 1,5" x 1,5" pour un confort optimal</li>
+                    <li><strong>30 patchs par pack</strong> - Un mois complet de soutien</li>
+                    <li><strong>Meilleure respirabilité</strong> - Technologie améliorée résistante à l'humidité</li>
+                    <li><strong>Discret et confortable</strong> - S'intègre parfaitement à votre routine</li>
+                </ul>
+                <p style="color: #0984e3; font-weight: 700; font-size: 1.1rem;">
+                    <i class="fas fa-check-circle"></i> Garantie 30 jours satisfait ou remboursé
+                </p>
+            </div>
+
+            <!-- ZEN -->
+            <div class="patch-showcase zen">
+                <div class="patch-image">
+                    <img src="assets/images/patch-zen.jpg" alt="Super Patch Zen">
+                </div>
+                <h2 class="patch-title">ZEN</h2>
+                <p class="tagline">"Get In The Zone"</p>
+                <p class="description">
+                    <strong>Cultivez une concentration pleine de conscience.</strong> Zen Super Patch favorise un esprit calme, clair et ouvert pour accéder à l'intuition et à la créativité.
+                </p>
+                <span class="vtt-badge"><i class="fas fa-bolt"></i> Propulsé par VTT 2.0</span>
+                <ul class="features">
+                    <li><strong>Concentration optimale</strong> - État de flow naturel</li>
+                    <li><strong>Esprit calme et clair</strong> - Réduit le bruit mental</li>
+                    <li><strong>Créativité & intuition</strong> - Accédez à votre potentiel</li>
+                    <li><strong>Harmonie cognitive</strong> - Soyez pleinement présent</li>
+                    <li><strong>40% plus petit</strong> - 1,5" x 1,5" pour un confort optimal</li>
+                    <li><strong>30 patchs par pack</strong> - Un mois complet de soutien</li>
+                    <li><strong>Sans drogue ni sédation</strong> - 100% naturel</li>
+                </ul>
+                <p style="color: #6c5ce7; font-weight: 700; font-size: 1.1rem;">
+                    <i class="fas fa-check-circle"></i> Garantie 30 jours satisfait ou remboursé
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            <p><i class="fas fa-info-circle"></i> Patchs adhésifs hypo-allergéniques en polyéthylène - Fabriqués aux USA</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.9;">
+                <i class="fas fa-gift"></i> Profitez de notre code promo exclusif pour votre première commande !
+            </p>
+        </div>
+    </div>
+</body>
+</html>
