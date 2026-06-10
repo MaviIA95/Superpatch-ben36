@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Produits | Super Patch BEN36 - Solutions & Cocktails</title>
+    <meta name="description" content="Découvrez la gamme complète Super Patch : Traitements de base, Cocktails spécialisés et Patchs individuels pour votre bien-être.">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* === BASE & VARIABLES (Identique à index.html) === */
+        :root {
+            --turquoise: #1ABC9C; --turquoise-dark: #16A085; --turquoise-light: #48C9B0;
+            --blue: #2E86AB; --dark-blue: #1B4F72; --orange: #F39C12; --yellow: #F1C40F;
+            --dark: #2C3E50; --light: #ECF0F1; --white: #FFFFFF;
+            --gradient-primary: linear-gradient(135deg, #1ABC9C 0%, #2E86AB 100%);
+            --gradient-gold: linear-gradient(135deg, #F39C12 0%, #F1C40F 100%);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; color: var(--dark); overflow-x: hidden; background: var(--white); }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+        a { text-decoration: none; }
+
+        /* === NAVBAR (Identique) === */
+        .navbar { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0,0,0,0.1); z-index: 1000; transition: all 0.3s ease; }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 1rem; }
+        .logo-icon { width: 50px; height: 50px; border-radius: 50%; overflow: hidden; box-shadow: 0 4px 15px rgba(26,188,156,0.4); }
+        .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+        .logo-text { display: flex; flex-direction: column; }
+        .logo-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--dark); line-height: 1; }
+        .logo-subtitle { font-size: 0.75rem; color: var(--turquoise); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; position: relative; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--turquoise); }
+        .nav-cta { background: var(--gradient-primary); color: white !important; padding: 0.8rem 1.8rem; border-radius: 50px; box-shadow: 0 4px 15px rgba(26,188,156,0.4); }
+        
+        /* === HERO PRODUITS === */
+        .products-hero { margin-top: 80px; padding: 6rem 2rem; background: linear-gradient(135deg, rgba(26,188,156,0.05) 0%, rgba(46,134,171,0.1) 100%); text-align: center; }
+        .products-hero h1 { font-size: 3.5rem; margin-bottom: 1rem; color: var(--dark); }
+        .products-hero h1 span { background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .products-hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 3rem; color: var(--blue); }
+        
+        /* Video Container */
+        .video-container { max-width: 900px; margin: 0 auto; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.2); position: relative; padding-bottom: 56.25%; height: 0; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+        /* === PROMO BANNER === */
+        .promo-banner { background: var(--gradient-gold); color: white; padding: 2rem; text-align: center; margin: 4rem auto; max-width: 1200px; border-radius: 20px; box-shadow: 0 10px 30px rgba(243,156,18,0.3); }
+        .promo-banner h3 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .promo-banner p { font-size: 1.1rem; opacity: 0.95; }
+        .promo-banner i { font-size: 2rem; margin-right: 1rem; }
+
+        /* === SECTIONS GÉNÉRIQUES === */
+        .section { padding: 6rem 2rem; }
+        .container { max-width: 1400px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-tag { display: inline-block; background: var(--gradient-primary); color: white; padding: 0.5rem 1.5rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; }
+        .section-title { font-size: 2.8rem; color: var(--dark); margin-bottom: 1rem; }
+        .section-subtitle { font-size: 1.2rem; color: var(--blue); max-width: 700px; margin: 0 auto; }
+
+        /* === TRAITEMENTS DE BASE (TIMELINE) === */
+        .timeline { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .timeline-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: transform 0.3s ease; border-top: 5px solid var(--turquoise); }
+        .timeline-card:hover { transform: translateY(-10px); }
+        .timeline-img { height: 250px; background: #f8f9fa; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .timeline-img img { width: 100%; height: 100%; object-fit: cover; }
+        .timeline-content { padding: 2rem; }
+        .timeline-month { color: var(--turquoise); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+        .timeline-title { font-size: 1.5rem; margin: 0.5rem 0 1rem; color: var(--dark); }
+        .timeline-text { font-size: 0.95rem; line-height: 1.6; color: var(--dark); opacity: 0.8; }
+
+        /* === COCKTAILS GRID === */
+        .cocktails-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2.5rem; }
+        .cocktail-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.3s ease; position: relative; }
+        .cocktail-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0,0,0,0.15); }
+        .cocktail-img { height: 280px; background: #f8f9fa; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .cocktail-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .cocktail-card:hover .cocktail-img img { transform: scale(1.05); }
+        .cocktail-content { padding: 2rem; }
+        .cocktail-title { font-size: 1.4rem; margin-bottom: 0.5rem; color: var(--dark); }
+        .cocktail-subtitle { color: var(--turquoise); font-weight: 600; font-size: 0.9rem; margin-bottom: 1rem; }
+        .cocktail-text { font-size: 0.95rem; line-height: 1.6; color: var(--dark); opacity: 0.8; }
+
+        /* === PATCHS INDIVIDUELS === */
+        .patches-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
+        .patch-card { background: white; border-radius: 15px; padding: 2rem; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: all 0.3s ease; border: 2px solid transparent; }
+        .patch-card:hover { border-color: var(--turquoise); transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+        .patch-img { height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; overflow: hidden; border-radius: 10px; }
+        .patch-img img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .patch-title { font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--dark); }
+        .patch-desc { font-size: 0.9rem; color: var(--dark); opacity: 0.8; line-height: 1.5; margin-bottom: 1.5rem; }
+
+        /* === TABLEAU RÉCAPITULATIF === */
+        .summary-table-container { background: white; border-radius: 20px; padding: 3rem; box-shadow: 0 15px 50px rgba(0,0,0,0.1); overflow-x: auto; }
+        .summary-list { list-style: none; }
+        .summary-list li { padding: 1rem 0; border-bottom: 1px solid var(--light); display: flex; align-items: flex-start; gap: 1rem; font-size: 1.05rem; }
+        .summary-list li:last-child { border-bottom: none; }
+        .summary-list i { color: var(--turquoise); font-size: 1.2rem; margin-top: 0.2rem; }
+        .patch-name { font-weight: 700; color: var(--dark); min-width: 120px; }
+        .patch-benefits { color: var(--dark); opacity: 0.8; }
+
+        /* === BOUTONS & CTA === */
+        .btn { padding: 1rem 2.5rem; border-radius: 50px; font-weight: 600; font-size: 1rem; display: inline-flex; align-items: center; gap: 0.8rem; transition: all 0.3s ease; cursor: pointer; border: none; }
+        .btn-primary { background: var(--gradient-primary); color: white; box-shadow: 0 4px 20px rgba(26,188,156,0.4); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(26,188,156,0.6); }
+        .btn-gold { background: var(--gradient-gold); color: white; box-shadow: 0 4px 20px rgba(243,156,18,0.4); }
+        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(243,156,18,0.6); }
+        
+        .cta-section { padding: 6rem 2rem; background: var(--gradient-primary); text-align: center; color: white; }
+        .cta-section h2 { font-size: 3rem; margin-bottom: 1.5rem; }
+        .cta-section p { font-size: 1.3rem; margin-bottom: 2.5rem; opacity: 0.95; }
+
+        /* === FOOTER (Identique) === */
+        .footer { background: var(--dark); color: white; padding: 4rem 2rem 2rem; }
+        .footer-container { max-width: 1400px; margin: 0 auto; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .footer-brand p { margin-top: 1rem; opacity: 0.8; line-height: 1.6; }
+        .footer-title { font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--turquoise); font-weight: 600; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.8rem; }
+        .footer-links a { color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s ease; }
+        .footer-links a:hover { opacity: 1; color: var(--turquoise); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; text-align: center; opacity: 0.7; font-size: 0.9rem; }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) { .nav-links { display: none; } .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 768px) { .products-hero h1 { font-size: 2.5rem; } .section-title { font-size: 2rem; } .footer-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><img src="assets/images/logo-ben36.png" alt="BEN36"></div>
+                <div class="logo-text">
+                    <span class="logo-title">BEN36</span>
+                    <span class="logo-subtitle">Bien Être Naturel</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="products.html" style="color: var(--turquoise);">Produits</a></li>
+                <li><a href="about.html">À Propos</a></li>
+                <li><a href="contact.html" class="nav-cta">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="products-hero">
+        <div class="container" data-aos="fade-up">
+            <h1>Nos Solutions <span>Super Patch</span></h1>
+            <p>Découvrez la gamme complète de patchs vibrotactiles. Des traitements de base aux cocktails spécialisés, trouvez la solution adaptée à vos besoins.</p>
+            
+            <div class="video-container" data-aos="zoom-in" data-aos-delay="200">
+                <iframe src="https://www.youtube.com/embed/4vPsjHcHqLU?si=FkbkwcM1jW1TLtOe&rel=0" title="Présentation Super Patch" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo Banner -->
+    <div class="container" data-aos="fade-up">
+        <div class="promo-banner">
+            <h3><i class="fas fa-gift"></i> Le Bon Plan BEN36</h3>
+            <p>Les tarifs sont beaucoup plus avantageux en devenant <strong>Distributeur Indépendant</strong> !<br>Profitez également d'un <strong>code promo exclusif</strong> pour votre première commande en tant que Client. Contactez-moi pour en bénéficier !</p>
+        </div>
+    </div>
+
+    <!-- Section 1: Traitements de Base -->
+    <section class="section" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Programme 3 Mois</span>
+                <h2 class="section-title">Les Traitements de Base</h2>
+                <p class="section-subtitle">Un protocole progressif pour réinitialiser votre corps et retrouver votre équilibre naturel.</p>
+            </div>
+
+            <div class="timeline">
+                <!-- Mois 1 -->
+                <div class="timeline-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="timeline-img">
+                        <img src="assets/images/traitement-1-mois.jpg" alt="Traitement 1er Mois">
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-month">1er Mois</span>
+                        <h3 class="timeline-title">LIBERTY - DEFEND</h3>
+                        <p class="timeline-text">Redonnez le pouvoir à votre corps. Ce duo remet votre organisme en homéostasie et soutient le fonctionnement normal de votre système immunitaire.</p>
+                    </div>
+                </div>
+                <!-- Mois 2 -->
+                <div class="timeline-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="timeline-img">
+                        <img src="assets/images/traitement-2-mois.jpg" alt="Traitement 2ème Mois">
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-month">2ème Mois</span>
+                        <h3 class="timeline-title">LIBERTY - IGNITE</h3>
+                        <p class="timeline-text">Retrouvez votre équilibre naturel et vos capacités innées. Ce combo soutient directement votre système digestif et votre métabolisme.</p>
+                    </div>
+                </div>
+                <!-- Mois 3 -->
+                <div class="timeline-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="timeline-img">
+                        <img src="assets/images/traitement-3-mois.jpg" alt="Traitement 3ème Mois">
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-month">3ème Mois</span>
+                        <h3 class="timeline-title">LIBERTY - PEACE</h3>
+                        <p class="timeline-text">Harmonisez vos dimensions physiques et émotionnelles. Offrez à votre système émotionnel les ressources nécessaires pour s'épanouir.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Les Cocktails -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Combinaisons Spéciales</span>
+                <h2 class="section-title">Les Cocktails Super Patch</h2>
+                <p class="section-subtitle">Des synergies puissantes de patchs pour cibler des objectifs précis.</p>
+            </div>
+
+            <div class="cocktails-grid">
+                <!-- Beauté -->
+                <div class="cocktail-card" data-aos="fade-up">
+                    <div class="cocktail-img"><img src="assets/images/cocktail-beaute.jpg" alt="Cocktail Beauté"></div>
+                    <div class="cocktail-content">
+                        <h3 class="cocktail-title">Cocktail de la Beauté</h3>
+                        <p class="cocktail-subtitle">LUMI - DEFEND - REM</p>
+                        <p class="cocktail-text">Soutient la production de collagène, maintient l'élasticité de la peau et favorise une nuit de sommeil réparatrice.</p>
+                    </div>
+                </div>
+                <!-- Équilibré -->
+                <div class="cocktail-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="cocktail-img"><img src="assets/images/cocktail-equilibre.jpg" alt="Cocktail Équilibré"></div>
+                    <div class="cocktail-content">
+                        <h3 class="cocktail-title">Cocktail Équilibré</h3>
+                        <p class="cocktail-subtitle">IGNITE - DEFEND - PEACE</p>
+                        <p class="cocktail-text">Soutient l'équilibre intérieur, renforce le métabolisme et contribue au fonctionnement normal du système digestif et immunitaire.</p>
+                    </div>
+                </div>
+                <!-- Douleur -->
+                <div class="cocktail-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="cocktail-img"><img src="assets/images/cocktail-douleur.jpg" alt="Cocktail Douleur"></div>
+                    <div class="cocktail-content">
+                        <h3 class="cocktail-title">Cocktail de la Douleur</h3>
+                        <p class="cocktail-subtitle">FREEDOM - LIBERTY - PEACE</p>
+                        <p class="cocktail-text">Soulage la douleur, favorise la relaxation, soutient la mobilité et apporte son aide au maintien de l'équilibre naturel du corps.</p>
+                    </div>
+                </div>
+                <!-- Métabolique -->
+                <div class="cocktail-card" data-aos="fade-up">
+                    <div class="cocktail-img"><img src="assets/images/cocktail-metabolique.jpg" alt="Cocktail Métabolique"></div>
+                    <div class="cocktail-content">
+                        <h3 class="cocktail-title">Cocktail Métabolique</h3>
+                        <p class="cocktail-subtitle">IGNITE - KICK IT - PEACE</p>
+                        <p class="cocktail-text">Favorise le bien-être général, soutient le métabolisme et encourage des habitudes de vie équilibrées pour une existence saine.</p>
+                    </div>
+                </div>
+                <!-- Clarté -->
+                <div class="cocktail-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="cocktail-img"><img src="assets/images/cocktail-clarte.jpg" alt="Cocktail Clarté"></div>
+                    <div class="cocktail-content">
+                        <h3 class="cocktail-title">Cocktail de la Clarté</h3>
+                        <p class="cocktail-subtitle">FOCUS - LIBERTY - PEACE</p>
+                        <p class="cocktail-text">Favorise l'équilibre intérieur, contribue à la clarté mentale et améliore vivement la capacité de concentration.</p>
+                    </div>
+                </div>
+                <!-- Énergétique -->
+                <div class="cocktail-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="cocktail-img"><img src="assets/images/cocktail-energetique.jpg" alt="Cocktail Énergétique"></div>
+                    <div class="cocktail-content">
+                        <h3 class="cocktail-title">Cocktail Énergétique</h3>
+                        <p class="cocktail-subtitle">VICTORY - BOOST - REM</p>
+                        <p class="cocktail-text">Maintient votre niveau d'énergie, apporte un soutien dans les phases de régénération et stimule la vigilance.</p>
+                    </div>
+                </div>
+                <!-- Sportif -->
+                <div class="cocktail-card" data-aos="fade-up">
+                    <div class="cocktail-img"><img src="assets/images/cocktail-sportif.jpg" alt="Cocktail Sportif"></div>
+                    <div class="cocktail-content">
+                        <h3 class="cocktail-title">Cocktail Sportif</h3>
+                        <p class="cocktail-subtitle">VICTORY - IGNITE - REM</p>
+                        <p class="cocktail-text">Maintient les niveaux d'énergie, soutient la régénération du corps, la force musculaire et favorise l'endurance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Patchs Individuels -->
+    <section class="section" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">À la Carte</span>
+                <h2 class="section-title">Les Patchs Individuels</h2>
+                <p class="section-subtitle">Ciblez un besoin spécifique avec nos patchs spécialisés.</p>
+            </div>
+
+            <div class="patches-grid">
+                <!-- BOOST -->
+                <div class="patch-card" data-aos="zoom-in">
+                    <div class="patch-img"><img src="assets/images/patch-boost.jpg" alt="Super Patch Boost"></div>
+                    <h3 class="patch-title">BOOST</h3>
+                    <p class="patch-desc">Rechargez vos batteries. Une énergie de dingue, naturelle et sans effet secondaire pour performer au quotidien.</p>
+                </div>
+                <!-- FOCUS -->
+                <div class="patch-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="patch-img"><img src="assets/images/patch-focus.jpg" alt="Super Patch Focus"></div>
+                    <h3 class="patch-title">FOCUS</h3>
+                    <p class="patch-desc">Concentration optimale. Idéal pour les étudiants, chercheurs et tous ceux qui ont besoin d'un esprit vif et clair.</p>
+                </div>
+                <!-- FREEDOM -->
+                <div class="patch-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="patch-img"><img src="assets/images/patch-freedom.jpg" alt="Super Patch Freedom"></div>
+                    <h3 class="patch-title">FREEDOM</h3>
+                    <p class="patch-desc">Traiter la douleur de manière sûre et simple. Soulage tout type de douleur, ponctuelle ou chronique, sans médicament.</p>
+                </div>
+                <!-- DEFEND -->
+                <div class="patch-card" data-aos="zoom-in">
+                    <div class="patch-img"><img src="assets/images/patch-defend.jpg" alt="Super Patch Defend"></div>
+                    <h3 class="patch-title">DEFEND</h3>
+                    <p class="patch-desc">Système Immunitaire & Sanguin. Restaure l'homéostasie physiologique et régule la biochimie de votre corps.</p>
+                </div>
+                <!-- LUMI -->
+                <div class="patch-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="patch-img"><img src="assets/images/patch-lumi.jpg" alt="Super Patch Lumi"></div>
+                    <h3 class="patch-title">LUMI</h3>
+                    <p class="patch-desc">Illuminez votre peau ! Active la faculté naturelle de la peau d'émettre de la lumière pour un teint radiant.</p>
+                </div>
+                <!-- LIBERTY -->
+                <div class="patch-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="patch-img"><img src="assets/images/patch-liberty.jpg" alt="Super Patch Liberty"></div>
+                    <h3 class="patch-title">LIBERTY</h3>
+                    <p class="patch-desc">Homéostasie & Anti-Âge. Le patch "base" qui optimise l'action de tous les autres patchs et lutte contre le vieillissement.</p>
+                </div>
+                <!-- IGNITE -->
+                <div class="patch-card" data-aos="zoom-in">
+                    <div class="patch-img"><img src="assets/images/patch-ignite.jpg" alt="Super Patch Ignite"></div>
+                    <h3 class="patch-title">IGNITE</h3>
+                    <p class="patch-desc">Gestion du Poids & Métabolisme. Permet de brûler jusqu'à 25% de calories en plus et agit sur la cellulite.</p>
+                </div>
+                <!-- KICK IT -->
+                <div class="patch-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="patch-img"><img src="assets/images/patch-kickit.jpg" alt="Super Patch Kick It"></div>
+                    <h3 class="patch-title">KICK IT</h3>
+                    <p class="patch-desc">Contrôlez vos habitudes. Solution révolutionnaire pour arrêter les addictions, le sucre et les fringales.</p>
+                </div>
+                <!-- JOY -->
+                <div class="patch-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="patch-img"><img src="assets/images/patch-joy.jpg" alt="Super Patch Joy"></div>
+                    <h3 class="patch-title">JOY</h3>
+                    <p class="patch-desc">Optimisez votre vie ! Ressentez naturellement la joie, le bonheur et développez une attitude positive.</p>
+                </div>
+                <!-- VICTORY -->
+                <div class="patch-card" data-aos="zoom-in">
+                    <div class="patch-img"><img src="assets/images/patch-victory.jpg" alt="Super Patch Victory"></div>
+                    <h3 class="patch-title">VICTORY</h3>
+                    <p class="patch-desc">Le Patch des Sportifs. Force, puissance, résistance, agilité et récupération pour optimiser vos performances.</p>
+                </div>
+                <!-- REM -->
+                <div class="patch-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="patch-img"><img src="assets/images/patch-rem.jpg" alt="Super Patch REM"></div>
+                    <h3 class="patch-title">REM</h3>
+                    <p class="patch-desc">Nuits réparatrices. Régule les habitudes et les cycles du sommeil pour un organisme qui fonctionne bien.</p>
+                </div>
+                <!-- ROCKET -->
+                <div class="patch-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="patch-img"><img src="assets/images/patch-rocket.jpg" alt="Super Patch Rocket"></div>
+                    <h3 class="patch-title">ROCKET</h3>
+                    <p class="patch-desc">Vitalité Masculine. Retrouvez votre vitalité et votre virilité de manière naturelle, sans crash et sans affolement.</p>
+                </div>
+                <!-- PEACE -->
+                <div class="patch-card" data-aos="zoom-in">
+                    <div class="patch-img"><img src="assets/images/patch-peace.jpg" alt="Super Patch Peace"></div>
+                    <h3 class="patch-title">PEACE</h3>
+                    <p class="patch-desc">Gestion du Stress & Anxiété. Ramène le calme pour faire face à chaque situation et apaise les tensions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Guide Récapitulatif -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Guide Rapide</span>
+                <h2 class="section-title">Quel Super Patch Utiliser ?</h2>
+                <p class="section-subtitle">Trouvez le patch adapté à votre objectif en un coup d'œil.</p>
+            </div>
+
+            <div class="summary-table-container" data-aos="fade-up">
+                <ul class="summary-list">
+                    <li><i class="fas fa-check-circle"></i> <span class="patch-name">LIBERTY</span> <span class="patch-benefits">Reset – Homéostasie – Anti-âge – Libération – Potentialise les autres Patchs</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="patch-name">DEFEND</span> <span class="patch-benefits">Système Immunitaire – Cicatrisation – Paramètre Sanguin – ATP</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="patch-name">FOCUS</span> <span class="patch-benefits">Concentration – Centrage – TSA – Dyslexie – Esprit vif</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="patch-name">PEACE</span> <span class="patch-benefits">Sérénité – Apaisement – Relaxation – Gestion des angoisses et du stress</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="patch-name">FREEDOM</span> <span class="patch-benefits">Gestion de la douleur ponctuelle et chronique – Mobilité</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="patch-name">JOY</span> <span class="patch-benefits">Retrouver la joie de vivre – Attitude positive – Bonne humeur</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="patch-name">VICTORY</span> <span class="patch-benefits">Performances sportive – Force – Résistance - Équilibre – Système musculaire</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="patch-name">IGNITE</span> <span class="patch-benefits">Gestion du poids – Cellulite – Système digestif – Fringale – Métabolisme</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="patch-name">KICK-IT</span> <span class="patch-benefits">Addictions – Sucre – Changement des mauvaises habitudes</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="patch-name">REM</span> <span class="patch-benefits">Qualité du sommeil – Rétablir les cycles de sommeil</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="patch-name">LUMI</span> <span class="patch-benefits">Beauté de la peau – Photons - Cicatrisation et oxygénation de la peau</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="patch-name">ROCKET</span> <span class="patch-benefits">Vitalité Masculine – Régulation hormonale – Jeunesse</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="patch-name">BOOST</span> <span class="patch-benefits">Recharge les batteries – Énergie de dingue – Endurance</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+        <div class="container" data-aos="zoom-in">
+            <h2>Prêt à Commencer Votre Transformation ?</h2>
+            <p>Commandez dès maintenant ou contactez-moi pour bénéficier de votre code promo et de mes conseils personnalisés.</p>
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                <a href="https://bit.ly/SP-Boutique" target="_blank" class="btn btn-gold" style="font-size: 1.1rem; padding: 1.2rem 3rem;">
+                    <i class="fas fa-shopping-cart"></i> Accéder à la Boutique
+                </a>
+                <a href="contact.html" class="btn" style="background: white; color: var(--turquoise); font-size: 1.1rem; padding: 1.2rem 3rem;">
+                    <i class="fas fa-envelope"></i> Me Contacter
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon"><img src="assets/images/logo-ben36.png" alt="BEN36"></div>
+                        <div class="logo-text">
+                            <span class="logo-title" style="color: white;">BEN36</span>
+                            <span class="logo-subtitle">Bien-être Naturel</span>
+                        </div>
+                    </a>
+                    <p>Conseiller Super Patch et Coach Bien-être indépendant. Votre partenaire pour une vie plus saine.</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="products.html">Produits</a></li>
+                        <li><a href="about.html">À Propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Ressources</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://bit.ly/SP-Boutique" target="_blank">Boutique Officielle</a></li>
+                        <li><a href="https://maviia95.github.io/atomy-maviia95/" target="_blank">ATOMY</a></li>
+                        <li><a href="https://benmanager.kneo.me/home" target="_blank">Ben Manager Labs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Aisne (02), France</li>
+                        <li><a href="mailto:bienetrenaturel36@gmail.com">bienetrenaturel36@gmail.com</a></li>
+                        <li><a href="tel:+33680244077">+33 6 80 24 40 77</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ben 36 - Ben Manager Labs. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, easing: 'ease-in-out', once: true, offset: 100 });
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 50); });
+    </script>
+</body>
+</html>
