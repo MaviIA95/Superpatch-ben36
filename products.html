@@ -13,7 +13,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
-        /* === BASE & VARIABLES (Identique à index.html) === */
+        /* === BASE & VARIABLES === */
         :root {
             --turquoise: #1ABC9C; --turquoise-dark: #16A085; --turquoise-light: #48C9B0;
             --blue: #2E86AB; --dark-blue: #1B4F72; --orange: #F39C12; --yellow: #F1C40F;
@@ -26,7 +26,7 @@
         h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
         a { text-decoration: none; }
 
-        /* === NAVBAR (Identique) === */
+        /* === NAVBAR === */
         .navbar { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0,0,0,0.1); z-index: 1000; transition: all 0.3s ease; }
         .nav-container { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; align-items: center; gap: 1rem; }
@@ -64,7 +64,7 @@
         .section-title { font-size: 2.8rem; color: var(--dark); margin-bottom: 1rem; }
         .section-subtitle { font-size: 1.2rem; color: var(--blue); max-width: 700px; margin: 0 auto; }
 
-        /* === TRAITEMENTS DE BASE (TIMELINE) === */
+        /* === TRAITEMENTS DE BASE === */
         .timeline { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         .timeline-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: transform 0.3s ease; border-top: 5px solid var(--turquoise); }
         .timeline-card:hover { transform: translateY(-10px); }
@@ -116,7 +116,7 @@
         .cta-section h2 { font-size: 3rem; margin-bottom: 1.5rem; }
         .cta-section p { font-size: 1.3rem; margin-bottom: 2.5rem; opacity: 0.95; }
 
-        /* === FOOTER (Identique) === */
+        /* === FOOTER === */
         .footer { background: var(--dark); color: white; padding: 4rem 2rem 2rem; }
         .footer-container { max-width: 1400px; margin: 0 auto; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
@@ -161,7 +161,7 @@
             <p>Découvrez la gamme complète de patchs vibrotactiles. Des traitements de base aux cocktails spécialisés, trouvez la solution adaptée à vos besoins.</p>
             
             <div class="video-container" data-aos="zoom-in" data-aos-delay="200">
-                <iframe src="https://www.youtube.com/embed/4vPsjHcHqLU?si=FkbkwcM1jW1TLtOe&rel=0" title="Présentation Super Patch" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/4vPsjHcHqLU?si=FkbkwcM1jW1TLtOe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </div>
     </section>
@@ -386,6 +386,18 @@
                     <h3 class="patch-title">PEACE</h3>
                     <p class="patch-desc">Gestion du Stress & Anxiété. Ramène le calme pour faire face à chaque situation et apaise les tensions.</p>
                 </div>
+                <!-- ASSURE - NOUVEAU -->
+                <div class="patch-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="patch-img"><img src="assets/images/patch-assure.jpg" alt="Super Patch Assure"></div>
+                    <h3 class="patch-title">ASSURE</h3>
+                    <p class="patch-desc">Voyagez avec confort et confiance. Réduit les nausées et sensations de malaise dues au mouvement. Sans médicament.</p>
+                </div>
+                <!-- ZEN - NOUVEAU -->
+                <div class="patch-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="patch-img"><img src="assets/images/patch-zen.jpg" alt="Super Patch Zen"></div>
+                    <h3 class="patch-title">ZEN</h3>
+                    <p class="patch-desc">Cultivez une concentration pleine de conscience. Esprit calme, clair et ouvert pour accéder à l'intuition et à la créativité.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -414,7 +426,12 @@
                     <li><i class="fas fa-check-circle"></i> <span class="patch-name">LUMI</span> <span class="patch-benefits">Beauté de la peau – Photons - Cicatrisation et oxygénation de la peau</span></li>
                     <li><i class="fas fa-check-circle"></i> <span class="patch-name">ROCKET</span> <span class="patch-benefits">Vitalité Masculine – Régulation hormonale – Jeunesse</span></li>
                     <li><i class="fas fa-check-circle"></i> <span class="patch-name">BOOST</span> <span class="patch-benefits">Recharge les batteries – Énergie de dingue – Endurance</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="patch-name">ASSURE</span> <span class="patch-benefits">Anti-nausées – Voyage – Mouvement – Confort digestif – Sans médicament</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="patch-name">ZEN</span> <span class="patch-benefits">Concentration pleine conscience – Esprit calme – Créativité – Intuition – Harmonie cognitive</span></li>
                 </ul>
+                <p style="text-align: center; margin-top: 2rem; font-size: 1.1rem; color: var(--turquoise); font-weight: 600;">
+                    <i class="fas fa-info-circle"></i> Et bien d'autres patchs à venir... Restez connectés !
+                </p>
             </div>
         </div>
     </section>
