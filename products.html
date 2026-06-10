@@ -36,7 +36,7 @@
         .logo-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--dark); line-height: 1; }
         .logo-subtitle { font-size: 0.75rem; color: var(--turquoise); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
         .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
-        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; position: relative; transition: color 0.3s ease; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; position: relative; transition: color 0.3s ease; cursor: pointer; }
         .nav-links a:hover { color: var(--turquoise); }
         .nav-cta { background: var(--gradient-primary); color: white !important; padding: 0.8rem 1.8rem; border-radius: 50px; box-shadow: 0 4px 15px rgba(26,188,156,0.4); }
         
@@ -68,8 +68,9 @@
         .timeline { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         .timeline-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: transform 0.3s ease; border-top: 5px solid var(--turquoise); }
         .timeline-card:hover { transform: translateY(-10px); }
-        .timeline-img { height: 250px; background: #f8f9fa; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .timeline-img img { width: 100%; height: 100%; object-fit: cover; }
+        .timeline-img { height: 250px; background: #f8f9fa; display: flex; align-items: center; justify-content: center; overflow: hidden; cursor: pointer; }
+        .timeline-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+        .timeline-img:hover img { transform: scale(1.05); }
         .timeline-content { padding: 2rem; }
         .timeline-month { color: var(--turquoise); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
         .timeline-title { font-size: 1.5rem; margin: 0.5rem 0 1rem; color: var(--dark); }
@@ -79,7 +80,7 @@
         .cocktails-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2.5rem; }
         .cocktail-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.3s ease; position: relative; }
         .cocktail-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0,0,0,0.15); }
-        .cocktail-img { height: 280px; background: #f8f9fa; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .cocktail-img { height: 280px; background: #f8f9fa; display: flex; align-items: center; justify-content: center; overflow: hidden; cursor: pointer; }
         .cocktail-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
         .cocktail-card:hover .cocktail-img img { transform: scale(1.05); }
         .cocktail-content { padding: 2rem; }
@@ -91,10 +92,69 @@
         .patches-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
         .patch-card { background: white; border-radius: 15px; padding: 2rem; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: all 0.3s ease; border: 2px solid transparent; }
         .patch-card:hover { border-color: var(--turquoise); transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
-        .patch-img { height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; overflow: hidden; border-radius: 10px; }
-        .patch-img img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .patch-img { height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; overflow: hidden; border-radius: 10px; cursor: pointer; }
+        .patch-img img { max-width: 100%; max-height: 100%; object-fit: contain; transition: transform 0.3s ease; }
+        .patch-img:hover img { transform: scale(1.1); }
         .patch-title { font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--dark); }
         .patch-desc { font-size: 0.9rem; color: var(--dark); opacity: 0.8; line-height: 1.5; margin-bottom: 1.5rem; }
+
+        /* === LIGHTBOX/MODAL === */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            animation: zoomIn 0.3s ease;
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            z-index: 10000;
+        }
+        .lightbox-close:hover {
+            color: var(--turquoise);
+            transform: rotate(90deg);
+        }
+        .lightbox-caption {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+            background: rgba(0,0,0,0.7);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+        }
 
         /* === TABLEAU RÉCAPITULATIF === */
         .summary-table-container { background: white; border-radius: 20px; padding: 3rem; box-shadow: 0 15px 50px rgba(0,0,0,0.1); overflow-x: auto; }
@@ -130,10 +190,17 @@
 
         /* === RESPONSIVE === */
         @media (max-width: 1024px) { .nav-links { display: none; } .footer-grid { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 768px) { .products-hero h1 { font-size: 2.5rem; } .section-title { font-size: 2rem; } .footer-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { .products-hero h1 { font-size: 2.5rem; } .section-title { font-size: 2rem; } .footer-grid { grid-template-columns: 1fr; } .lightbox-close { top: 10px; right: 20px; font-size: 2.5rem; } }
     </style>
 </head>
 <body>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        <img src="" alt="" id="lightboxImg">
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
 
     <!-- Navigation -->
     <nav class="navbar">
@@ -186,7 +253,7 @@
             <div class="timeline">
                 <!-- Mois 1 -->
                 <div class="timeline-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="timeline-img">
+                    <div class="timeline-img" onclick="openLightbox('assets/images/traitement-1-mois.jpg', 'Traitement 1er Mois - LIBERTY - DEFEND')">
                         <img src="assets/images/traitement-1-mois.jpg" alt="Traitement 1er Mois">
                     </div>
                     <div class="timeline-content">
@@ -197,7 +264,7 @@
                 </div>
                 <!-- Mois 2 -->
                 <div class="timeline-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="timeline-img">
+                    <div class="timeline-img" onclick="openLightbox('assets/images/traitement-2-mois.jpg', 'Traitement 2ème Mois - LIBERTY - IGNITE')">
                         <img src="assets/images/traitement-2-mois.jpg" alt="Traitement 2ème Mois">
                     </div>
                     <div class="timeline-content">
@@ -208,7 +275,7 @@
                 </div>
                 <!-- Mois 3 -->
                 <div class="timeline-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="timeline-img">
+                    <div class="timeline-img" onclick="openLightbox('assets/images/traitement-3-mois.jpg', 'Traitement 3ème Mois - LIBERTY - PEACE')">
                         <img src="assets/images/traitement-3-mois.jpg" alt="Traitement 3ème Mois">
                     </div>
                     <div class="timeline-content">
@@ -233,7 +300,9 @@
             <div class="cocktails-grid">
                 <!-- Beauté -->
                 <div class="cocktail-card" data-aos="fade-up">
-                    <div class="cocktail-img"><img src="assets/images/cocktail-beaute.jpg" alt="Cocktail Beauté"></div>
+                    <div class="cocktail-img" onclick="openLightbox('assets/images/cocktail-beaute.jpg', 'Cocktail de la Beauté - LUMI - DEFEND - REM')">
+                        <img src="assets/images/cocktail-beaute.jpg" alt="Cocktail Beauté">
+                    </div>
                     <div class="cocktail-content">
                         <h3 class="cocktail-title">Cocktail de la Beauté</h3>
                         <p class="cocktail-subtitle">LUMI - DEFEND - REM</p>
@@ -242,7 +311,9 @@
                 </div>
                 <!-- Équilibré -->
                 <div class="cocktail-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="cocktail-img"><img src="assets/images/cocktail-equilibre.jpg" alt="Cocktail Équilibré"></div>
+                    <div class="cocktail-img" onclick="openLightbox('assets/images/cocktail-equilibre.jpg', 'Cocktail Équilibré - IGNITE - DEFEND - PEACE')">
+                        <img src="assets/images/cocktail-equilibre.jpg" alt="Cocktail Équilibré">
+                    </div>
                     <div class="cocktail-content">
                         <h3 class="cocktail-title">Cocktail Équilibré</h3>
                         <p class="cocktail-subtitle">IGNITE - DEFEND - PEACE</p>
@@ -251,7 +322,9 @@
                 </div>
                 <!-- Douleur -->
                 <div class="cocktail-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="cocktail-img"><img src="assets/images/cocktail-douleur.jpg" alt="Cocktail Douleur"></div>
+                    <div class="cocktail-img" onclick="openLightbox('assets/images/cocktail-douleur.jpg', 'Cocktail de la Douleur - FREEDOM - LIBERTY - PEACE')">
+                        <img src="assets/images/cocktail-douleur.jpg" alt="Cocktail Douleur">
+                    </div>
                     <div class="cocktail-content">
                         <h3 class="cocktail-title">Cocktail de la Douleur</h3>
                         <p class="cocktail-subtitle">FREEDOM - LIBERTY - PEACE</p>
@@ -260,7 +333,9 @@
                 </div>
                 <!-- Métabolique -->
                 <div class="cocktail-card" data-aos="fade-up">
-                    <div class="cocktail-img"><img src="assets/images/cocktail-metabolique.jpg" alt="Cocktail Métabolique"></div>
+                    <div class="cocktail-img" onclick="openLightbox('assets/images/cocktail-metabolique.jpg', 'Cocktail Métabolique - IGNITE - KICK IT - PEACE')">
+                        <img src="assets/images/cocktail-metabolique.jpg" alt="Cocktail Métabolique">
+                    </div>
                     <div class="cocktail-content">
                         <h3 class="cocktail-title">Cocktail Métabolique</h3>
                         <p class="cocktail-subtitle">IGNITE - KICK IT - PEACE</p>
@@ -269,7 +344,9 @@
                 </div>
                 <!-- Clarté -->
                 <div class="cocktail-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="cocktail-img"><img src="assets/images/cocktail-clarte.jpg" alt="Cocktail Clarté"></div>
+                    <div class="cocktail-img" onclick="openLightbox('assets/images/cocktail-clarte.jpg', 'Cocktail de la Clarté - FOCUS - LIBERTY - PEACE')">
+                        <img src="assets/images/cocktail-clarte.jpg" alt="Cocktail Clarté">
+                    </div>
                     <div class="cocktail-content">
                         <h3 class="cocktail-title">Cocktail de la Clarté</h3>
                         <p class="cocktail-subtitle">FOCUS - LIBERTY - PEACE</p>
@@ -278,7 +355,9 @@
                 </div>
                 <!-- Énergétique -->
                 <div class="cocktail-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="cocktail-img"><img src="assets/images/cocktail-energetique.jpg" alt="Cocktail Énergétique"></div>
+                    <div class="cocktail-img" onclick="openLightbox('assets/images/cocktail-energetique.jpg', 'Cocktail Énergétique - VICTORY - BOOST - REM')">
+                        <img src="assets/images/cocktail-energetique.jpg" alt="Cocktail Énergétique">
+                    </div>
                     <div class="cocktail-content">
                         <h3 class="cocktail-title">Cocktail Énergétique</h3>
                         <p class="cocktail-subtitle">VICTORY - BOOST - REM</p>
@@ -287,7 +366,9 @@
                 </div>
                 <!-- Sportif -->
                 <div class="cocktail-card" data-aos="fade-up">
-                    <div class="cocktail-img"><img src="assets/images/cocktail-sportif.jpg" alt="Cocktail Sportif"></div>
+                    <div class="cocktail-img" onclick="openLightbox('assets/images/cocktail-sportif.jpg', 'Cocktail Sportif - VICTORY - IGNITE - REM')">
+                        <img src="assets/images/cocktail-sportif.jpg" alt="Cocktail Sportif">
+                    </div>
                     <div class="cocktail-content">
                         <h3 class="cocktail-title">Cocktail Sportif</h3>
                         <p class="cocktail-subtitle">VICTORY - IGNITE - REM</p>
@@ -310,91 +391,121 @@
             <div class="patches-grid">
                 <!-- BOOST -->
                 <div class="patch-card" data-aos="zoom-in">
-                    <div class="patch-img"><img src="assets/images/patch-boost.jpg" alt="Super Patch Boost"></div>
+                    <div class="patch-img" onclick="openLightbox('assets/images/patch-boost.jpg', 'Super Patch BOOST - Énergie Naturelle')">
+                        <img src="assets/images/patch-boost.jpg" alt="Super Patch Boost">
+                    </div>
                     <h3 class="patch-title">BOOST</h3>
                     <p class="patch-desc">Rechargez vos batteries. Une énergie de dingue, naturelle et sans effet secondaire pour performer au quotidien.</p>
                 </div>
                 <!-- FOCUS -->
                 <div class="patch-card" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="patch-img"><img src="assets/images/patch-focus.jpg" alt="Super Patch Focus"></div>
+                    <div class="patch-img" onclick="openLightbox('assets/images/patch-focus.jpg', 'Super Patch FOCUS - Concentration Optimale')">
+                        <img src="assets/images/patch-focus.jpg" alt="Super Patch Focus">
+                    </div>
                     <h3 class="patch-title">FOCUS</h3>
                     <p class="patch-desc">Concentration optimale. Idéal pour les étudiants, chercheurs et tous ceux qui ont besoin d'un esprit vif et clair.</p>
                 </div>
                 <!-- FREEDOM -->
                 <div class="patch-card" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="patch-img"><img src="assets/images/patch-freedom.jpg" alt="Super Patch Freedom"></div>
+                    <div class="patch-img" onclick="openLightbox('assets/images/patch-freedom.jpg', 'Super Patch FREEDOM - Gestion de la Douleur')">
+                        <img src="assets/images/patch-freedom.jpg" alt="Super Patch Freedom">
+                    </div>
                     <h3 class="patch-title">FREEDOM</h3>
                     <p class="patch-desc">Traiter la douleur de manière sûre et simple. Soulage tout type de douleur, ponctuelle ou chronique, sans médicament.</p>
                 </div>
                 <!-- DEFEND -->
                 <div class="patch-card" data-aos="zoom-in">
-                    <div class="patch-img"><img src="assets/images/patch-defend.jpg" alt="Super Patch Defend"></div>
+                    <div class="patch-img" onclick="openLightbox('assets/images/patch-defend.jpg', 'Super Patch DEFEND - Système Immunitaire')">
+                        <img src="assets/images/patch-defend.jpg" alt="Super Patch Defend">
+                    </div>
                     <h3 class="patch-title">DEFEND</h3>
                     <p class="patch-desc">Système Immunitaire & Sanguin. Restaure l'homéostasie physiologique et régule la biochimie de votre corps.</p>
                 </div>
                 <!-- LUMI -->
                 <div class="patch-card" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="patch-img"><img src="assets/images/patch-lumi.jpg" alt="Super Patch Lumi"></div>
+                    <div class="patch-img" onclick="openLightbox('assets/images/patch-lumi.jpg', 'Super Patch LUMI - Beauté de la Peau')">
+                        <img src="assets/images/patch-lumi.jpg" alt="Super Patch Lumi">
+                    </div>
                     <h3 class="patch-title">LUMI</h3>
                     <p class="patch-desc">Illuminez votre peau ! Active la faculté naturelle de la peau d'émettre de la lumière pour un teint radiant.</p>
                 </div>
                 <!-- LIBERTY -->
                 <div class="patch-card" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="patch-img"><img src="assets/images/patch-liberty.jpg" alt="Super Patch Liberty"></div>
+                    <div class="patch-img" onclick="openLightbox('assets/images/patch-liberty.jpg', 'Super Patch LIBERTY - Homéostasie & Anti-Âge')">
+                        <img src="assets/images/patch-liberty.jpg" alt="Super Patch Liberty">
+                    </div>
                     <h3 class="patch-title">LIBERTY</h3>
                     <p class="patch-desc">Homéostasie & Anti-Âge. Le patch "base" qui optimise l'action de tous les autres patchs et lutte contre le vieillissement.</p>
                 </div>
                 <!-- IGNITE -->
                 <div class="patch-card" data-aos="zoom-in">
-                    <div class="patch-img"><img src="assets/images/patch-ignite.jpg" alt="Super Patch Ignite"></div>
+                    <div class="patch-img" onclick="openLightbox('assets/images/patch-ignite.jpg', 'Super Patch IGNITE - Gestion du Poids')">
+                        <img src="assets/images/patch-ignite.jpg" alt="Super Patch Ignite">
+                    </div>
                     <h3 class="patch-title">IGNITE</h3>
                     <p class="patch-desc">Gestion du Poids & Métabolisme. Permet de brûler jusqu'à 25% de calories en plus et agit sur la cellulite.</p>
                 </div>
                 <!-- KICK IT -->
                 <div class="patch-card" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="patch-img"><img src="assets/images/patch-kickit.jpg" alt="Super Patch Kick It"></div>
+                    <div class="patch-img" onclick="openLightbox('assets/images/patch-kickit.jpg', 'Super Patch KICK IT - Contrôle des Habitudes')">
+                        <img src="assets/images/patch-kickit.jpg" alt="Super Patch Kick It">
+                    </div>
                     <h3 class="patch-title">KICK IT</h3>
                     <p class="patch-desc">Contrôlez vos habitudes. Solution révolutionnaire pour arrêter les addictions, le sucre et les fringales.</p>
                 </div>
                 <!-- JOY -->
                 <div class="patch-card" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="patch-img"><img src="assets/images/patch-joy.jpg" alt="Super Patch Joy"></div>
+                    <div class="patch-img" onclick="openLightbox('assets/images/patch-joy.jpg', 'Super Patch JOY - Bonheur & Optimisme')">
+                        <img src="assets/images/patch-joy.jpg" alt="Super Patch Joy">
+                    </div>
                     <h3 class="patch-title">JOY</h3>
                     <p class="patch-desc">Optimisez votre vie ! Ressentez naturellement la joie, le bonheur et développez une attitude positive.</p>
                 </div>
                 <!-- VICTORY -->
                 <div class="patch-card" data-aos="zoom-in">
-                    <div class="patch-img"><img src="assets/images/patch-victory.jpg" alt="Super Patch Victory"></div>
+                    <div class="patch-img" onclick="openLightbox('assets/images/patch-victory.jpg', 'Super Patch VICTORY - Performance Sportive')">
+                        <img src="assets/images/patch-victory.jpg" alt="Super Patch Victory">
+                    </div>
                     <h3 class="patch-title">VICTORY</h3>
                     <p class="patch-desc">Le Patch des Sportifs. Force, puissance, résistance, agilité et récupération pour optimiser vos performances.</p>
                 </div>
                 <!-- REM -->
                 <div class="patch-card" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="patch-img"><img src="assets/images/patch-rem.jpg" alt="Super Patch REM"></div>
+                    <div class="patch-img" onclick="openLightbox('assets/images/patch-rem.jpg', 'Super Patch REM - Sommeil Réparateur')">
+                        <img src="assets/images/patch-rem.jpg" alt="Super Patch REM">
+                    </div>
                     <h3 class="patch-title">REM</h3>
                     <p class="patch-desc">Nuits réparatrices. Régule les habitudes et les cycles du sommeil pour un organisme qui fonctionne bien.</p>
                 </div>
                 <!-- ROCKET -->
                 <div class="patch-card" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="patch-img"><img src="assets/images/patch-rocket.jpg" alt="Super Patch Rocket"></div>
+                    <div class="patch-img" onclick="openLightbox('assets/images/patch-rocket.jpg', 'Super Patch ROCKET - Vitalité Masculine')">
+                        <img src="assets/images/patch-rocket.jpg" alt="Super Patch Rocket">
+                    </div>
                     <h3 class="patch-title">ROCKET</h3>
                     <p class="patch-desc">Vitalité Masculine. Retrouvez votre vitalité et votre virilité de manière naturelle, sans crash et sans affolement.</p>
                 </div>
                 <!-- PEACE -->
                 <div class="patch-card" data-aos="zoom-in">
-                    <div class="patch-img"><img src="assets/images/patch-peace.jpg" alt="Super Patch Peace"></div>
+                    <div class="patch-img" onclick="openLightbox('assets/images/patch-peace.jpg', 'Super Patch PEACE - Gestion du Stress')">
+                        <img src="assets/images/patch-peace.jpg" alt="Super Patch Peace">
+                    </div>
                     <h3 class="patch-title">PEACE</h3>
                     <p class="patch-desc">Gestion du Stress & Anxiété. Ramène le calme pour faire face à chaque situation et apaise les tensions.</p>
                 </div>
                 <!-- ASSURE - NOUVEAU -->
                 <div class="patch-card" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="patch-img"><img src="assets/images/patch-assure.jpg" alt="Super Patch Assure"></div>
+                    <div class="patch-img" onclick="openLightbox('assets/images/patch-assure.jpg', 'Super Patch ASSURE - Anti-Nausées & Voyage')">
+                        <img src="assets/images/patch-assure.jpg" alt="Super Patch Assure">
+                    </div>
                     <h3 class="patch-title">ASSURE</h3>
                     <p class="patch-desc">Voyagez avec confort et confiance. Réduit les nausées et sensations de malaise dues au mouvement. Sans médicament.</p>
                 </div>
                 <!-- ZEN - NOUVEAU -->
                 <div class="patch-card" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="patch-img"><img src="assets/images/patch-zen.jpg" alt="Super Patch Zen"></div>
+                    <div class="patch-img" onclick="openLightbox('assets/images/patch-zen.jpg', 'Super Patch ZEN - Concentration Pleine Conscience')">
+                        <img src="assets/images/patch-zen.jpg" alt="Super Patch Zen">
+                    </div>
                     <h3 class="patch-title">ZEN</h3>
                     <p class="patch-desc">Cultivez une concentration pleine de conscience. Esprit calme, clair et ouvert pour accéder à l'intuition et à la créativité.</p>
                 </div>
@@ -504,6 +615,39 @@
         AOS.init({ duration: 800, easing: 'ease-in-out', once: true, offset: 100 });
         const navbar = document.querySelector('.navbar');
         window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 50); });
+        
+        // === LIGHTBOX FUNCTIONALITY ===
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+        const lightboxClose = document.getElementById('lightboxClose');
+
+        function openLightbox(src, caption) {
+            lightboxImg.src = src;
+            lightboxCaption.textContent = caption;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Close with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
     </script>
 </body>
 </html>
