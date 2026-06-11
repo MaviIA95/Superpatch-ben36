@@ -98,7 +98,7 @@
         .patch-title { font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--dark); }
         .patch-desc { font-size: 0.9rem; color: var(--dark); opacity: 0.8; line-height: 1.5; margin-bottom: 1.5rem; }
 
-        /* === LIGHTBOX/MODAL === */
+        /* === LIGHTBOX/MODAL AVEC ZOOM === */
         .lightbox {
             display: none;
             position: fixed;
@@ -117,13 +117,25 @@
             display: flex;
             opacity: 1;
         }
-        .lightbox img {
+        .lightbox-content {
+            position: relative;
             max-width: 90%;
             max-height: 90%;
+            overflow: hidden;
+            cursor: grab;
+        }
+        .lightbox-content.dragging {
+            cursor: grabbing;
+        }
+        .lightbox img {
+            max-width: 100%;
+            max-height: 80vh;
             object-fit: contain;
             border-radius: 10px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.5);
             animation: zoomIn 0.3s ease;
+            transform-origin: center center;
+            transition: transform 0.2s ease;
         }
         @keyframes zoomIn {
             from { transform: scale(0.8); opacity: 0; }
@@ -153,6 +165,45 @@
             text-align: center;
             background: rgba(0,0,0,0.7);
             padding: 1rem 2rem;
+            border-radius: 50px;
+            z-index: 10001;
+        }
+        .lightbox-controls {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 10001;
+        }
+        .lightbox-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        .lightbox-btn:hover {
+            background: var(--turquoise);
+            border-color: var(--turquoise);
+            transform: scale(1.1);
+        }
+        .lightbox-zoom-level {
+            color: white;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.5rem 1rem;
             border-radius: 50px;
         }
 
@@ -190,7 +241,14 @@
 
         /* === RESPONSIVE === */
         @media (max-width: 1024px) { .nav-links { display: none; } .footer-grid { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 768px) { .products-hero h1 { font-size: 2.5rem; } .section-title { font-size: 2rem; } .footer-grid { grid-template-columns: 1fr; } .lightbox-close { top: 10px; right: 20px; font-size: 2.5rem; } }
+        @media (max-width: 768px) { 
+            .products-hero h1 { font-size: 2.5rem; } 
+            .section-title { font-size: 2rem; } 
+            .footer-grid { grid-template-columns: 1fr; } 
+            .lightbox-close { top: 10px; right: 20px; font-size: 2.5rem; }
+            .lightbox-controls { top: 10px; gap: 0.5rem; }
+            .lightbox-btn { width: 40px; height: 40px; font-size: 1rem; }
+        }
     </style>
 </head>
 <body>
@@ -198,7 +256,24 @@
     <!-- Lightbox Modal -->
     <div class="lightbox" id="lightbox">
         <span class="lightbox-close" id="lightboxClose">&times;</span>
-        <img src="" alt="" id="lightboxImg">
+        
+        <div class="lightbox-controls">
+            <button class="lightbox-btn" id="zoomOut" title="Dézoomer">
+                <i class="fas fa-minus"></i>
+            </button>
+            <span class="lightbox-zoom-level" id="zoomLevel">100%</span>
+            <button class="lightbox-btn" id="zoomIn" title="Zoomer">
+                <i class="fas fa-plus"></i>
+            </button>
+            <button class="lightbox-btn" id="zoomReset" title="Réinitialiser">
+                <i class="fas fa-expand"></i>
+            </button>
+        </div>
+
+        <div class="lightbox-content" id="lightboxContent">
+            <img src="" alt="" id="lightboxImg">
+        </div>
+        
         <div class="lightbox-caption" id="lightboxCaption"></div>
     </div>
 
@@ -494,21 +569,21 @@
                     <p class="patch-desc">Gestion du Stress & Anxiété. Ramène le calme pour faire face à chaque situation et apaise les tensions.</p>
                 </div>
                 <!-- ASSURE - NOUVEAU -->
-<div class="patch-card" data-aos="zoom-in" data-aos-delay="100">
-    <div class="patch-img" onclick="openLightbox('assets/images/affiche-nouveautes.jpg', 'Nouveautés Super Patch : ASSURE & ZEN - Technologie VTT 2.0')">
-        <img src="assets/images/patch-assure.jpg" alt="Super Patch Assure">
-    </div>
-    <h3 class="patch-title">ASSURE</h3>
-    <p class="patch-desc">Voyagez avec confort et confiance. Réduit les nausées et sensations de malaise dues au mouvement. Sans médicament.</p>
-</div>
+                <div class="patch-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="patch-img" onclick="openLightbox('assets/images/affiche-nouveautes.jpg', 'Nouveautés Super Patch : ASSURE & ZEN - Technologie VTT 2.0')">
+                        <img src="assets/images/patch-assure.jpg" alt="Super Patch Assure">
+                    </div>
+                    <h3 class="patch-title">ASSURE</h3>
+                    <p class="patch-desc">Voyagez avec confort et confiance. Réduit les nausées et sensations de malaise dues au mouvement. Sans médicament.</p>
+                </div>
                 <!-- ZEN - NOUVEAU -->
-<div class="patch-card" data-aos="zoom-in" data-aos-delay="200">
-    <div class="patch-img" onclick="openLightbox('assets/images/affiche-nouveautes.jpg', 'Nouveautés Super Patch : ASSURE & ZEN - Technologie VTT 2.0')">
-        <img src="assets/images/patch-zen.jpg" alt="Super Patch Zen">
-    </div>
-    <h3 class="patch-title">ZEN</h3>
-    <p class="patch-desc">Cultivez une concentration pleine de conscience. Esprit calme, clair et ouvert pour accéder à l'intuition et à la créativité.</p>
-</div>
+                <div class="patch-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="patch-img" onclick="openLightbox('assets/images/affiche-nouveautes.jpg', 'Nouveautés Super Patch : ASSURE & ZEN - Technologie VTT 2.0')">
+                        <img src="assets/images/patch-zen.jpg" alt="Super Patch Zen">
+                    </div>
+                    <h3 class="patch-title">ZEN</h3>
+                    <p class="patch-desc">Cultivez une concentration pleine de conscience. Esprit calme, clair et ouvert pour accéder à l'intuition et à la créativité.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -616,30 +691,146 @@
         const navbar = document.querySelector('.navbar');
         window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 50); });
         
-        // === LIGHTBOX FUNCTIONALITY ===
+        // === LIGHTBOX AVEC ZOOM PRO ===
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightboxImg');
         const lightboxCaption = document.getElementById('lightboxCaption');
         const lightboxClose = document.getElementById('lightboxClose');
+        const lightboxContent = document.getElementById('lightboxContent');
+        const zoomInBtn = document.getElementById('zoomIn');
+        const zoomOutBtn = document.getElementById('zoomOut');
+        const zoomResetBtn = document.getElementById('zoomReset');
+        const zoomLevelDisplay = document.getElementById('zoomLevel');
+
+        let currentZoom = 1;
+        const zoomStep = 0.25;
+        const maxZoom = 5;
+        const minZoom = 0.5;
+        let isDragging = false;
+        let startX, startY, translateX = 0, translateY = 0;
 
         function openLightbox(src, caption) {
             lightboxImg.src = src;
             lightboxCaption.textContent = caption;
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
+            resetZoom();
         }
 
         function closeLightbox() {
             lightbox.classList.remove('active');
             document.body.style.overflow = 'auto';
+            resetZoom();
         }
 
+        function updateZoom() {
+            lightboxImg.style.transform = `scale(${currentZoom}) translate(${translateX / currentZoom}px, ${translateY / currentZoom}px)`;
+            zoomLevelDisplay.textContent = `${Math.round(currentZoom * 100)}%`;
+        }
+
+        function resetZoom() {
+            currentZoom = 1;
+            translateX = 0;
+            translateY = 0;
+            updateZoom();
+        }
+
+        function zoomIn() {
+            if (currentZoom < maxZoom) {
+                currentZoom = Math.min(currentZoom + zoomStep, maxZoom);
+                updateZoom();
+            }
+        }
+
+        function zoomOut() {
+            if (currentZoom > minZoom) {
+                currentZoom = Math.max(currentZoom - zoomStep, minZoom);
+                updateZoom();
+            }
+        }
+
+        // Event Listeners pour les boutons
+        zoomInBtn.addEventListener('click', zoomIn);
+        zoomOutBtn.addEventListener('click', zoomOut);
+        zoomResetBtn.addEventListener('click', resetZoom);
         lightboxClose.addEventListener('click', closeLightbox);
         
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) {
                 closeLightbox();
             }
+        });
+
+        // Zoom avec la molette de souris
+        lightboxContent.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            if (e.deltaY < 0) {
+                zoomIn();
+            } else {
+                zoomOut();
+            }
+        });
+
+        // Drag/Pan quand zoomé
+        lightboxContent.addEventListener('mousedown', (e) => {
+            if (currentZoom > 1) {
+                isDragging = true;
+                startX = e.clientX - translateX;
+                startY = e.clientY - translateY;
+                lightboxContent.classList.add('dragging');
+                e.preventDefault();
+            }
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                translateX = e.clientX - startX;
+                translateY = e.clientY - startY;
+                updateZoom();
+            }
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+            lightboxContent.classList.remove('dragging');
+        });
+
+        // Touch events pour mobile
+        let touchStartX, touchStartY, touchStartDist;
+        
+        lightboxContent.addEventListener('touchstart', (e) => {
+            if (e.touches.length === 2) {
+                touchStartDist = Math.hypot(
+                    e.touches[0].pageX - e.touches[1].pageX,
+                    e.touches[0].pageY - e.touches[1].pageY
+                );
+            } else if (e.touches.length === 1 && currentZoom > 1) {
+                isDragging = true;
+                startX = e.touches[0].clientX - translateX;
+                startY = e.touches[0].clientY - translateY;
+            }
+        });
+
+        lightboxContent.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+            if (e.touches.length === 2) {
+                const currentDist = Math.hypot(
+                    e.touches[0].pageX - e.touches[1].pageX,
+                    e.touches[0].pageY - e.touches[1].pageY
+                );
+                const delta = currentDist - touchStartDist;
+                if (delta > 0) zoomIn();
+                else zoomOut();
+                touchStartDist = currentDist;
+            } else if (isDragging && e.touches.length === 1) {
+                translateX = e.touches[0].clientX - startX;
+                translateY = e.touches[0].clientY - startY;
+                updateZoom();
+            }
+        }, { passive: false });
+
+        lightboxContent.addEventListener('touchend', () => {
+            isDragging = false;
         });
 
         // Close with Escape key
