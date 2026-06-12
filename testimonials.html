@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Témoignages Réels | Super Patch BEN36 - Résultats Concrets</title>
+    <meta name="description" content="Découvrez les témoignages vidéo authentiques de personnes transformées par Super Patch. Douleur, mobilité, bien-être et expertise médicale.">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --turquoise: #1ABC9C; --turquoise-dark: #16A085; --turquoise-light: #48C9B0;
+            --blue: #2E86AB; --dark-blue: #1B4F72; --orange: #F39C12; --yellow: #F1C40F;
+            --dark: #2C3E50; --light: #ECF0F1; --white: #FFFFFF;
+            --gradient-primary: linear-gradient(135deg, #1ABC9C 0%, #2E86AB 100%);
+            --gradient-gold: linear-gradient(135deg, #F39C12 0%, #F1C40F 100%);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; color: var(--dark); overflow-x: hidden; background: var(--white); }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+        a { text-decoration: none; }
+
+        /* === NAVBAR === */
+        .navbar { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0,0,0,0.1); z-index: 1000; transition: all 0.3s ease; }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 1rem; }
+        .logo-icon { width: 50px; height: 50px; border-radius: 50%; overflow: hidden; box-shadow: 0 4px 15px rgba(26,188,156,0.4); }
+        .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+        .logo-text { display: flex; flex-direction: column; }
+        .logo-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--dark); line-height: 1; }
+        .logo-subtitle { font-size: 0.75rem; color: var(--turquoise); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--turquoise); }
+        .nav-cta { background: var(--gradient-primary); color: white !important; padding: 0.8rem 1.8rem; border-radius: 50px; box-shadow: 0 4px 15px rgba(26,188,156,0.4); }
+
+        /* === HERO TÉMOIGNAGES === */
+        .testimonials-hero { margin-top: 80px; padding: 6rem 2rem; background: linear-gradient(135deg, rgba(44,62,80,0.95) 0%, rgba(27,79,114,0.95) 100%), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover; color: white; text-align: center; }
+        .testimonials-hero h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+        .testimonials-hero h1 span { color: var(--turquoise-light); }
+        .testimonials-hero p { font-size: 1.3rem; max-width: 800px; margin: 0 auto 2rem; opacity: 0.9; }
+        .stats-row { display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; margin-top: 3rem; }
+        .stat-item h3 { font-size: 2.5rem; color: var(--turquoise); }
+        .stat-item p { font-size: 1rem; opacity: 0.8; }
+
+        /* === FILTRES === */
+        .filters { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin: 3rem auto; max-width: 1200px; padding: 0 2rem; }
+        .filter-btn { padding: 0.8rem 1.8rem; border: 2px solid var(--light); background: white; border-radius: 50px; cursor: pointer; font-weight: 600; transition: all 0.3s ease; font-size: 0.95rem; }
+        .filter-btn:hover, .filter-btn.active { background: var(--gradient-primary); color: white; border-color: transparent; box-shadow: 0 4px 15px rgba(26,188,156,0.3); }
+
+        /* === GRILLE VIDÉOS === */
+        .videos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2.5rem; max-width: 1400px; margin: 0 auto 6rem; padding: 0 2rem; }
+        .video-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.3s ease; cursor: pointer; position: relative; }
+        .video-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0,0,0,0.15); }
+        .video-thumbnail { position: relative; height: 200px; overflow: hidden; background: #000; }
+        .video-thumbnail img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .video-card:hover .video-thumbnail img { transform: scale(1.05); }
+        .play-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; transition: background 0.3s ease; }
+        .video-card:hover .play-overlay { background: rgba(0,0,0,0.1); }
+        .play-btn { width: 70px; height: 70px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.3s ease; }
+        .video-card:hover .play-btn { transform: scale(1.1); }
+        .video-content { padding: 1.5rem; }
+        .video-tag { display: inline-block; background: rgba(26,188,156,0.1); color: var(--turquoise-dark); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.8rem; text-transform: uppercase; }
+        .video-title { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--dark); line-height: 1.4; }
+        .video-desc { font-size: 0.9rem; color: var(--dark); opacity: 0.7; line-height: 1.5; }
+
+        /* === LIGHTBOX VIDÉO === */
+        .video-lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 9999; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; }
+        .video-lightbox.active { display: flex; opacity: 1; }
+        .video-lightbox-content { position: relative; width: 90%; max-width: 1000px; aspect-ratio: 16/9; background: #000; border-radius: 15px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+        .video-lightbox iframe { width: 100%; height: 100%; border: none; }
+        .video-lightbox-close { position: absolute; top: -50px; right: 0; color: white; font-size: 2.5rem; cursor: pointer; transition: color 0.3s ease; }
+        .video-lightbox-close:hover { color: var(--turquoise); }
+
+        /* === CTA FINAL === */
+        .cta-section { padding: 6rem 2rem; background: var(--gradient-primary); text-align: center; color: white; }
+        .cta-section h2 { font-size: 3rem; margin-bottom: 1.5rem; }
+        .cta-section p { font-size: 1.3rem; margin-bottom: 2.5rem; opacity: 0.95; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .btn { padding: 1rem 2.5rem; border-radius: 50px; font-weight: 600; font-size: 1rem; display: inline-flex; align-items: center; gap: 0.8rem; transition: all 0.3s ease; border: none; cursor: pointer; }
+        .btn-white { background: white; color: var(--turquoise); }
+        .btn-white:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .btn-outline { background: transparent; color: white; border: 2px solid white; }
+        .btn-outline:hover { background: white; color: var(--turquoise); transform: translateY(-3px); }
+
+        /* === FOOTER === */
+        .footer { background: var(--dark); color: white; padding: 4rem 2rem 2rem; }
+        .footer-container { max-width: 1400px; margin: 0 auto; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .footer-brand p { margin-top: 1rem; opacity: 0.8; }
+        .footer-title { font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--turquoise); font-weight: 600; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.8rem; }
+        .footer-links a { color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s ease; }
+        .footer-links a:hover { opacity: 1; color: var(--turquoise); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; text-align: center; opacity: 0.7; font-size: 0.9rem; }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) { .nav-links { display: none; } .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 768px) { 
+            .testimonials-hero h1 { font-size: 2.5rem; } 
+            .stats-row { gap: 2rem; } 
+            .videos-grid { grid-template-columns: 1fr; } 
+            .footer-grid { grid-template-columns: 1fr; } 
+            .cta-section h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Video Lightbox -->
+    <div class="video-lightbox" id="videoLightbox">
+        <span class="video-lightbox-close" id="videoLightboxClose">&times;</span>
+        <div class="video-lightbox-content">
+            <iframe id="videoLightboxIframe" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><img src="assets/images/logo-ben36.png" alt="BEN36"></div>
+                <div class="logo-text">
+                    <span class="logo-title">BEN36</span>
+                    <span class="logo-subtitle">Bien Être Naturel</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="products.html">Produits</a></li>
+                <li><a href="about.html">À Propos</a></li>
+                <li><a href="testimonials.html" style="color: var(--turquoise);">Témoignages</a></li>
+                <li><a href="contact.html" class="nav-cta">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="testimonials-hero">
+        <div class="container" data-aos="fade-up">
+            <h1>Des Vies <span>Transformées</span></h1>
+            <p>Découvrez les témoignages authentiques de personnes qui ont retrouvé mobilité, sérénité et vitalité grâce à la neurotechnologie Super Patch.</p>
+            
+            <div class="stats-row" data-aos="fade-up" data-aos-delay="200">
+                <div class="stat-item">
+                    <h3>1M+</h3>
+                    <p>Utilisateurs satisfaits</p>
+                </div>
+                <div class="stat-item">
+                    <h3>15+</h3>
+                    <p>Années de R&D</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Naturel & Sans médicament</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <div class="filters" data-aos="fade-up">
+        <button class="filter-btn active" data-filter="all">Tous</button>
+        <button class="filter-btn" data-filter="douleur">Douleur & Mobilité</button>
+        <button class="filter-btn" data-filter="transformation">Transformation & Bien-être</button>
+        <button class="filter-btn" data-filter="expertise">Expertise & Science</button>
+    </div>
+
+    <!-- Videos Grid -->
+    <div class="videos-grid" id="videosGrid">
+        <!-- Douleur & Mobilité -->
+        <div class="video-card" data-category="douleur" data-video="9Uob2r5r2mo" onclick="openVideoLightbox('9Uob2r5r2mo')">
+            <div class="video-thumbnail">
+                <img src="https://img.youtube.com/vi/9Uob2r5r2mo/maxresdefault.jpg" alt="Monter les escaliers sans effort">
+                <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+            </div>
+            <div class="video-content">
+                <span class="video-tag">Mobilité</span>
+                <h3 class="video-title">Le secret pour monter les escaliers comme avant</h3>
+                <p class="video-desc">Retrouvez une mobilité naturelle et sans effort au quotidien.</p>
+            </div>
+        </div>
+
+        <div class="video-card" data-category="douleur" data-video="8t14A_ivdGA" onclick="openVideoLightbox('8t14A_ivdGA')">
+            <div class="video-thumbnail">
+                <img src="https://img.youtube.com/vi/8t14A_ivdGA/maxresdefault.jpg" alt="Accident du travail Liberty Patch">
+                <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+            </div>
+            <div class="video-content">
+                <span class="video-tag">Douleur</span>
+                <h3 class="video-title">Victime d'un accident du travail, elle retrouve espoir</h3>
+                <p class="video-desc">Témoignage puissant sur la récupération grâce au Liberty Patch.</p>
+            </div>
+        </div>
+
+        <div class="video-card" data-category="douleur" data-video="nsFnZaTaKQQ" onclick="openVideoLightbox('nsFnZaTaKQQ')">
+            <div class="video-thumbnail">
+                <img src="https://img.youtube.com/vi/nsFnZaTaKQQ/maxresdefault.jpg" alt="Troubles neurologiques Victory Patch">
+                <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+            </div>
+            <div class="video-content">
+                <span class="video-tag">Neurologie</span>
+                <h3 class="video-title">Récupère sa marche en 5 minutes avec Victory</h3>
+                <p class="video-desc">Une démonstration impressionnante de la technologie vibrotactile.</p>
+            </div>
+        </div>
+
+        <div class="video-card" data-category="douleur" data-video="5lup21J1qg4" onclick="openVideoLightbox('5lup21J1qg4')">
+            <div class="video-thumbnail">
+                <img src="https://img.youtube.com/vi/5lup21J1qg4/maxresdefault.jpg" alt="Douleur chronique soulagement">
+                <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+            </div>
+            <div class="video-content">
+                <span class="video-tag">Soulagement</span>
+                <h3 class="video-title">Douleur Chronique : 72% de soulagement en 14 jours</h3>
+                <p class="video-desc">Des résultats concrets mesurés sur la gestion de la douleur.</p>
+            </div>
+        </div>
+
+        <!-- Transformation & Bien-être -->
+        <div class="video-card" data-category="transformation" data-video="E_ZNZdZ4xoU" onclick="openVideoLightbox('E_ZNZdZ4xoU')">
+            <div class="video-thumbnail">
+                <img src="https://img.youtube.com/vi/E_ZNZdZ4xoU/maxresdefault.jpg" alt="Transformation incroyable Liberty">
+                <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+            </div>
+            <div class="video-content">
+                <span class="video-tag">Transformation</span>
+                <h3 class="video-title">L'incroyable transformation grâce à Liberty</h3>
+                <p class="video-desc">Un parcours inspirant de remise en forme et d'équilibre retrouvé.</p>
+            </div>
+        </div>
+
+        <div class="video-card" data-category="transformation" data-video="ajjAmPjtPFY" onclick="openVideoLightbox('ajjAmPjtPFY')">
+            <div class="video-thumbnail">
+                <img src="https://img.youtube.com/vi/ajjAmPjtPFY/maxresdefault.jpg" alt="Neurotechnologie a changé une vie">
+                <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+            </div>
+            <div class="video-content">
+                <span class="video-tag">Vie changée</span>
+                <h3 class="video-title">Comment une neurotechnologie a changé une vie</h3>
+                <p class="video-desc">Témoignage émouvant sur l'impact au quotidien.</p>
+            </div>
+        </div>
+
+        <div class="video-card" data-category="transformation" data-video="mo11SYHIvjM" onclick="openVideoLightbox('mo11SYHIvjM')">
+            <div class="video-thumbnail">
+                <img src="https://img.youtube.com/vi/mo11SYHIvjM/maxresdefault.jpg" alt="Liberty Focus Freedom quotidien familial">
+                <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+            </div>
+            <div class="video-content">
+                <span class="video-tag">Famille</span>
+                <h3 class="video-title">Liberty, Focus & Freedom ont transformé notre quotidien</h3>
+                <p class="video-desc">L'effet cumulé des patchs sur l'équilibre familial et personnel.</p>
+            </div>
+        </div>
+
+        <!-- Expertise & Science -->
+        <div class="video-card" data-category="expertise" data-video="byY8hOQrF_k" onclick="openVideoLightbox('byY8hOQrF_k')">
+            <div class="video-thumbnail">
+                <img src="https://img.youtube.com/vi/byY8hOQrF_k/maxresdefault.jpg" alt="Coach leadership émotionnel">
+                <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+            </div>
+            <div class="video-content">
+                <span class="video-tag">Émotions</span>
+                <h3 class="video-title">Coach en leadership émotionnel : l'équilibre retrouvé</h3>
+                <p class="video-desc">Comment gérer ses émotions et retrouver une clarté mentale.</p>
+            </div>
+        </div>
+
+        <div class="video-card" data-category="expertise" data-video="nNivOx7LdkQ" onclick="openVideoLightbox('nNivOx7LdkQ')">
+            <div class="video-thumbnail">
+                <img src="https://img.youtube.com/vi/nNivOx7LdkQ/maxresdefault.jpg" alt="Dr Elisabeth Johan Amourette addiction">
+                <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+            </div>
+            <div class="video-content">
+                <span class="video-tag">Addiction</span>
+                <h3 class="video-title">Briser les chaînes de l'addiction - Dr Elisabeth J. Amourette</h3>
+                <p class="video-desc">Approche médicale et naturelle pour reprendre le contrôle.</p>
+            </div>
+        </div>
+
+        <div class="video-card" data-category="expertise" data-video="rW-l0mtEFmQ" onclick="openVideoLightbox('rW-l0mtEFmQ')">
+            <div class="video-thumbnail">
+                <img src="https://img.youtube.com/vi/rW-l0mtEFmQ/maxresdefault.jpg" alt="Dr Pamela Smith révolution sans médicaments">
+                <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+            </div>
+            <div class="video-content">
+                <span class="video-tag">Médecine</span>
+                <h3 class="video-title">La Révolution Sans Médicaments - Dr Pamela Smith</h3>
+                <p class="video-desc">Témoignage d'une professionnelle de santé sur les alternatives naturelles.</p>
+            </div>
+        </div>
+
+        <div class="video-card" data-category="expertise" data-video="3BstT6vOWjw" onclick="openVideoLightbox('3BstT6vOWjw')">
+            <div class="video-thumbnail">
+                <img src="https://img.youtube.com/vi/3BstT6vOWjw/maxresdefault.jpg" alt="Réparation pulmonaire Victory Sylvie G">
+                <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+            </div>
+            <div class="video-content">
+                <span class="video-tag">Respiratoire</span>
+                <h3 class="video-title">Réparation Pulmonaire INCROYABLE - Sylvie G.</h3>
+                <p class="video-desc">Un témoignage émouvant sur la récupération respiratoire.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+        <div class="container" data-aos="zoom-in">
+            <h2>Et vous, prêt à vivre votre transformation ?</h2>
+            <p>Ces résultats parlent d'eux-mêmes. Que vous cherchiez à soulager une douleur, retrouver de l'énergie ou simplement mieux vivre, je vous accompagne pas à pas.</p>
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                <a href="contact.html" class="btn btn-white">
+                    <i class="fas fa-calendar-check"></i> Réserver un Appel Découverte
+                </a>
+                <a href="https://bit.ly/SP-Boutique" target="_blank" class="btn btn-outline">
+                    <i class="fas fa-shopping-cart"></i> Commander Maintenant
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon"><img src="assets/images/logo-ben36.png" alt="BEN36"></div>
+                        <div class="logo-text">
+                            <span class="logo-title" style="color: white;">BEN36</span>
+                            <span class="logo-subtitle">Bien-être Naturel</span>
+                        </div>
+                    </a>
+                    <p>Conseiller Super Patch et Coach Bien-être indépendant. Votre partenaire pour une vie plus saine.</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="products.html">Produits</a></li>
+                        <li><a href="about.html">À Propos</a></li>
+                        <li><a href="testimonials.html">Témoignages</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Ressources</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://bit.ly/SP-Boutique" target="_blank">Boutique Officielle</a></li>
+                        <li><a href="https://maviia95.github.io/atomy-maviia95/" target="_blank">ATOMY</a></li>
+                        <li><a href="https://benmanager.kneo.me/home" target="_blank">Ben Manager Labs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Aisne (02), France</li>
+                        <li><a href="mailto:bienetrenaturel36@gmail.com">bienetrenaturel36@gmail.com</a></li>
+                        <li><a href="tel:+33680244077">+33 6 80 24 40 77</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ben 36 - Ben Manager Labs. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, easing: 'ease-in-out', once: true, offset: 100 });
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 50); });
+
+        // === FILTRES VIDÉOS ===
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const videoCards = document.querySelectorAll('.video-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.getAttribute('data-filter');
+                
+                videoCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                        setTimeout(() => card.style.opacity = '1', 50);
+                    } else {
+                        card.style.opacity = '0';
+                        setTimeout(() => card.style.display = 'none', 300);
+                    }
+                });
+            });
+        });
+
+        // === LIGHTBOX VIDÉO ===
+        const videoLightbox = document.getElementById('videoLightbox');
+        const videoLightboxIframe = document.getElementById('videoLightboxIframe');
+        const videoLightboxClose = document.getElementById('videoLightboxClose');
+
+        function openVideoLightbox(videoId) {
+            videoLightboxIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+            videoLightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeVideoLightbox() {
+            videoLightboxIframe.src = '';
+            videoLightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        videoLightboxClose.addEventListener('click', closeVideoLightbox);
+        videoLightbox.addEventListener('click', (e) => {
+            if (e.target === videoLightbox) closeVideoLightbox();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeVideoLightbox();
+        });
+    </script>
+</body>
+</html>
