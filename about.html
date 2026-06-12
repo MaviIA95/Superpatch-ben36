@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos de Ben 36 | Mon Histoire & Ma Mission Super Patch</title>
+    <meta name="description" content="Découvrez le parcours de Ben 36, de la maladie à la vitalité optimale grâce à Super Patch. Coach bien-être et distributeur indépendant.">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* === BASE & VARIABLES === */
+        :root {
+            --turquoise: #1ABC9C; --turquoise-dark: #16A085; --turquoise-light: #48C9B0;
+            --blue: #2E86AB; --dark-blue: #1B4F72; --orange: #F39C12; --yellow: #F1C40F;
+            --dark: #2C3E50; --light: #ECF0F1; --white: #FFFFFF;
+            --gradient-primary: linear-gradient(135deg, #1ABC9C 0%, #2E86AB 100%);
+            --gradient-gold: linear-gradient(135deg, #F39C12 0%, #F1C40F 100%);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; color: var(--dark); overflow-x: hidden; background: var(--white); line-height: 1.6; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+        a { text-decoration: none; }
+
+        /* === NAVBAR === */
+        .navbar { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0,0,0,0.1); z-index: 1000; transition: all 0.3s ease; }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 1rem; }
+        .logo-icon { width: 50px; height: 50px; border-radius: 50%; overflow: hidden; box-shadow: 0 4px 15px rgba(26,188,156,0.4); }
+        .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+        .logo-text { display: flex; flex-direction: column; }
+        .logo-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--dark); line-height: 1; }
+        .logo-subtitle { font-size: 0.75rem; color: var(--turquoise); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--turquoise); }
+        .nav-cta { background: var(--gradient-primary); color: white !important; padding: 0.8rem 1.8rem; border-radius: 50px; box-shadow: 0 4px 15px rgba(26,188,156,0.4); }
+
+        /* === HERO À PROPOS === */
+        .about-hero { margin-top: 80px; padding: 6rem 2rem; background: linear-gradient(135deg, rgba(26,188,156,0.05) 0%, rgba(46,134,171,0.1) 100%); text-align: center; }
+        .about-hero h1 { font-size: 3.5rem; margin-bottom: 1rem; color: var(--dark); }
+        .about-hero h1 span { background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .about-hero p { font-size: 1.3rem; max-width: 800px; margin: 0 auto 3rem; color: var(--blue); font-style: italic; }
+        
+        .profile-container { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+        .profile-img { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; border: 6px solid white; box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
+
+        /* === SECTIONS GÉNÉRIQUES === */
+        .section { padding: 6rem 2rem; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-tag { display: inline-block; background: var(--gradient-primary); color: white; padding: 0.5rem 1.5rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; }
+        .section-title { font-size: 2.8rem; color: var(--dark); margin-bottom: 1rem; }
+        .section-subtitle { font-size: 1.2rem; color: var(--blue); max-width: 700px; margin: 0 auto; }
+
+        /* === TIMELINE / STORYTELLING === */
+        .timeline-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .timeline-card { background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); position: relative; overflow: hidden; transition: transform 0.3s ease; }
+        .timeline-card:hover { transform: translateY(-10px); }
+        .timeline-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: var(--gradient-primary); }
+        .timeline-icon { width: 60px; height: 60px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; margin-bottom: 1.5rem; }
+        .timeline-year { font-size: 1.2rem; font-weight: 700; color: var(--turquoise); margin-bottom: 0.5rem; }
+        .timeline-title { font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark); }
+        .timeline-text { font-size: 1rem; color: var(--dark); opacity: 0.85; }
+
+        /* === MANIFESTE / PHILOSOPHIE === */
+        .manifesto { background: var(--dark); color: white; padding: 6rem 2rem; text-align: center; position: relative; overflow: hidden; }
+        .manifesto::before { content: '"'; position: absolute; top: -20px; left: 50%; transform: translateX(-50%); font-size: 20rem; color: rgba(255,255,255,0.05); font-family: 'Playfair Display', serif; }
+        .manifesto-content { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+        .manifesto h2 { font-size: 2.5rem; margin-bottom: 2rem; color: var(--turquoise-light); }
+        .manifesto p { font-size: 1.2rem; line-height: 1.8; margin-bottom: 1.5rem; opacity: 0.9; }
+        .manifesto-signature { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--orange); margin-top: 2rem; font-style: italic; }
+
+        /* === MES PATCHS INDISPENSABLES === */
+        .patches-fav { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .patch-fav-card { background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-top: 4px solid var(--turquoise); }
+        .patch-fav-icon { font-size: 2.5rem; color: var(--turquoise); margin-bottom: 1rem; }
+        .patch-fav-title { font-size: 1.3rem; margin-bottom: 1rem; color: var(--dark); }
+        .patch-fav-desc { font-size: 0.95rem; color: var(--dark); opacity: 0.8; }
+
+        /* === ÉCOSYSTÈME (3 PILIERS) === */
+        .ecosystem { background: #f8f9fa; }
+        .eco-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .eco-card { background: white; padding: 3rem 2rem; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.3s ease; text-decoration: none; color: var(--dark); border: 2px solid transparent; }
+        .eco-card:hover { transform: translateY(-10px); border-color: var(--turquoise); box-shadow: 0 20px 50px rgba(0,0,0,0.15); }
+        .eco-icon { width: 80px; height: 80px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; margin: 0 auto 1.5rem; }
+        .eco-card:nth-child(2) .eco-icon { background: linear-gradient(135deg, #2E86AB, #1B4F72); }
+        .eco-card:nth-child(3) .eco-icon { background: var(--gradient-gold); }
+        .eco-title { font-size: 1.5rem; margin-bottom: 1rem; }
+        .eco-desc { font-size: 1rem; opacity: 0.8; margin-bottom: 1.5rem; }
+        .eco-link { color: var(--turquoise); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* === GALERIE === */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+        .gallery-item { border-radius: 15px; overflow: hidden; height: 250px; cursor: pointer; position: relative; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-item::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.2); transition: opacity 0.3s ease; }
+        .gallery-item:hover::after { opacity: 0; }
+
+        /* === LIGHTBOX === */
+        .lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 9999; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; }
+        .lightbox.active { display: flex; opacity: 1; }
+        .lightbox img { max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 10px; }
+        .lightbox-close { position: absolute; top: 20px; right: 40px; color: white; font-size: 3rem; cursor: pointer; }
+
+        /* === CTA FINAL === */
+        .cta-section { padding: 6rem 2rem; background: var(--gradient-primary); text-align: center; color: white; }
+        .cta-section h2 { font-size: 3rem; margin-bottom: 1.5rem; }
+        .cta-section p { font-size: 1.3rem; margin-bottom: 2.5rem; opacity: 0.95; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .btn { padding: 1rem 2.5rem; border-radius: 50px; font-weight: 600; font-size: 1rem; display: inline-flex; align-items: center; gap: 0.8rem; transition: all 0.3s ease; border: none; cursor: pointer; }
+        .btn-primary { background: white; color: var(--turquoise); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .btn-secondary { background: transparent; color: white; border: 2px solid white; }
+        .btn-secondary:hover { background: white; color: var(--turquoise); transform: translateY(-3px); }
+
+        /* === FOOTER === */
+        .footer { background: var(--dark); color: white; padding: 4rem 2rem 2rem; }
+        .footer-container { max-width: 1400px; margin: 0 auto; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .footer-brand p { margin-top: 1rem; opacity: 0.8; }
+        .footer-title { font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--turquoise); font-weight: 600; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.8rem; }
+        .footer-links a { color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s ease; }
+        .footer-links a:hover { opacity: 1; color: var(--turquoise); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; text-align: center; opacity: 0.7; font-size: 0.9rem; }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) { .nav-links { display: none; } .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 768px) { 
+            .about-hero h1 { font-size: 2.5rem; } 
+            .section-title { font-size: 2rem; } 
+            .footer-grid { grid-template-columns: 1fr; } 
+            .cta-section h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        <img src="" alt="" id="lightboxImg">
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><img src="assets/images/logo-ben36.png" alt="BEN36"></div>
+                <div class="logo-text">
+                    <span class="logo-title">BEN36</span>
+                    <span class="logo-subtitle">Bien Être Naturel</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="products.html">Produits</a></li>
+                <li><a href="about.html" style="color: var(--turquoise);">À Propos</a></li>
+                <li><a href="contact.html" class="nav-cta">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container" data-aos="fade-up">
+            <h1>De la maladie à la <span>vitalité optimale</span></h1>
+            <p>"Pour avoir une forme à toute épreuve, faites du sport et prenez soin de vous et de votre Corps."</p>
+            
+            <div class="profile-container">
+                <img src="assets/images/photo-laurent.png" alt="Ben 36 - Laurent" class="profile-img" data-aos="zoom-in" data-aos-delay="200">
+                <div>
+                    <h3 style="font-size: 1.5rem; color: var(--dark);">Ben 36 (Laurent)</h3>
+                    <p style="color: var(--turquoise); font-weight: 600; margin-top: 0.5rem;">Coach Bien-être & Distributeur Indépendant Super Patch</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Storytelling Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Mon Parcours</span>
+                <h2 class="section-title">Une Histoire de Résilience</h2>
+                <p class="section-subtitle">Comment j'ai repris le contrôle de ma santé et de ma vie.</p>
+            </div>
+
+            <div class="timeline-grid">
+                <!-- Avant -->
+                <div class="timeline-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="timeline-icon"><i class="fas fa-cloud-rain"></i></div>
+                    <div class="timeline-year">Avant 2019</div>
+                    <h3 class="timeline-title">Les Défis de la Vie</h3>
+                    <p class="timeline-text">
+                        Depuis mon plus jeune âge, j'ai enchaîné les problèmes de santé : allergies, sinusites, et à 4 ans, la maladie de Ménière qui m'a forcé à arrêter le basket. En 2011, un grave accident du travail (700kg sur le dos) a ajouté des vertiges invalidants à mon quotidien. Les médecins m'ont dit : "Il faut vivre avec".
+                    </p>
+                </div>
+                <!-- Le Déclic -->
+                <div class="timeline-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="timeline-icon"><i class="fas fa-lightbulb"></i></div>
+                    <div class="timeline-year">2019</div>
+                    <h3 class="timeline-title">Le Déclic du Confinement</h3>
+                    <p class="timeline-text">
+                        Confiné, je cherchais des opportunités sur le web. Une amie de confiance, Élodie, m'a parlé de Super Patch. Curieux et ouvert, j'ai décidé de la suivre dans l'aventure. C'était le début d'une révolution intérieure et physique.
+                    </p>
+                </div>
+                <!-- Aujourd'hui -->
+                <div class="timeline-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="timeline-icon"><i class="fas fa-sun"></i></div>
+                    <div class="timeline-year">Aujourd'hui</div>
+                    <h3 class="timeline-title">La Révolution Totale</h3>
+                    <p class="timeline-text">
+                        Depuis 2019, je ne vais plus chez le médecin (sauf pour les bilans) et je ne prends <strong>aucun médicament</strong>. En retraite, je n'ai jamais été aussi bien ! J'ai repris le sport avec un coach et j'accompagne aujourd'hui les autres vers leur propre transformation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Manifeste / Philosophie -->
+    <section class="manifesto">
+        <div class="manifesto-content" data-aos="fade-up">
+            <h2>Ma Philosophie</h2>
+            <p>
+                Notre cerveau apporte à notre corps ce dont il a besoin. Mais aujourd'hui, vu ce que l'on mange, ce que l'on écoute, et qui l'on côtoie, notre cerveau a perdu une partie de ses pouvoirs. 
+            </p>
+            <p>
+                Les patchs nous aident grandement à reconnecter ces signaux, mais ils ne font pas tout. Nous avons besoin de changer notre façon de vivre et d'aider notre corps. En sept ans, j'ai appris à vivre autrement, et quand je vois le résultat aujourd'hui, je suis fier de ce chemin.
+            </p>
+            <div class="manifesto-signature">- Ben 36</div>
+        </div>
+    </section>
+
+    <!-- Mes Patchs Indispensables -->
+    <section class="section" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Mes Alliés Quotidiens</span>
+                <h2 class="section-title">Mes 3 Patchs Indispensables</h2>
+                <p class="section-subtitle">Ceux qui m'accompagnent au jour le jour pour rester au top.</p>
+            </div>
+
+            <div class="patches-fav">
+                <div class="patch-fav-card" data-aos="zoom-in">
+                    <div class="patch-fav-icon"><i class="fas fa-bolt"></i></div>
+                    <h3 class="patch-fav-title">VICTORY</h3>
+                    <p class="patch-fav-desc">Pour la performance, la souplesse et surtout l'équilibre lors de mes séances de kiné et de sport.</p>
+                </div>
+                <div class="patch-fav-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="patch-fav-icon"><i class="fas fa-heartbeat"></i></div>
+                    <h3 class="patch-fav-title">LIBERTY</h3>
+                    <p class="patch-fav-desc">Pour maintenir mon homéostasie, garder mes analyses de sang au top et réguler mon organisme en profondeur.</p>
+                </div>
+                <div class="patch-fav-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="patch-fav-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="patch-fav-title">FREEDOM</h3>
+                    <p class="patch-fav-desc">Mon sauveur pour gérer les douleurs résiduelles ou les petits vertiges quand ils tentent de revenir.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Écosystème (3 Piliers) -->
+    <section class="section ecosystem">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Au-delà de Super Patch</span>
+                <h2 class="section-title">Mon Écosystème de Réussite</h2>
+                <p class="section-subtitle">Trois piliers complémentaires pour votre bien-être physique, digital et financier.</p>
+            </div>
+
+            <div class="eco-grid">
+                <a href="https://benmanager.kneo.me/home" target="_blank" class="eco-card" data-aos="fade-up">
+                    <div class="eco-icon"><i class="fas fa-code"></i></div>
+                    <h3 class="eco-title">Ben Manager Labs</h3>
+                    <p class="eco-desc">Solutions digitales et applications innovantes développées avec mon associé Léo pour booster votre productivité.</p>
+                    <span class="eco-link">Découvrir <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="https://maviia95.github.io/atomy-maviia95/" target="_blank" class="eco-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="eco-icon"><i class="fas fa-shopping-bag"></i></div>
+                    <h3 class="eco-title">ATOMY</h3>
+                    <p class="eco-desc">Des produits de qualité premium (cosmétiques, compléments) à prix accessibles pour toute la famille.</p>
+                    <span class="eco-link">Explorer la boutique <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="https://maviia95.github.io/Aitech-Sonic/index.html" target="_blank" class="eco-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="eco-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3 class="eco-title">TAG</h3>
+                    <p class="eco-desc">Opportunités d'investissement et trading. Revenus passifs grâce à la publicité digitale et à l'IA.</p>
+                    <span class="eco-link">Voir les opportunités <i class="fas fa-arrow-right"></i></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galerie Photos -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Moments Forts</span>
+                <h2 class="section-title">Sur le Terrain avec Super Patch</h2>
+                <p class="section-subtitle">7 ans d'événements en Europe, de rencontres et d'apprentissages.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item" data-aos="zoom-in" onclick="openLightbox('assets/images/laurent-jay.jpg')">
+                    <img src="assets/images/laurent-jay.jpg" alt="Avec Jay Dhaliwal">
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100" onclick="openLightbox('assets/images/laurent-event.jpg')">
+                    <img src="assets/images/laurent-event.jpg" alt="En événement Super Patch">
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200" onclick="openLightbox('assets/images/laurent-groupe1.jpg')">
+                    <img src="assets/images/laurent-groupe1.jpg" alt="Équipe Super Patch">
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300" onclick="openLightbox('assets/images/laurent-groupe2.jpg')">
+                    <img src="assets/images/laurent-groupe2.jpg" alt="Conférence Super Patch">
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400" onclick="openLightbox('assets/images/gamme-produits.jpg')">
+                    <img src="assets/images/gamme-produits.jpg" alt="Gamme complète Super Patch">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+        <div class="container" data-aos="zoom-in">
+            <h2>Et vous, prêt à transformer votre vie ?</h2>
+            <p>Que vous cherchiez à retrouver la santé, à optimiser vos performances ou à bâtir une nouvelle liberté financière, je suis là pour vous accompagner.</p>
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                <a href="contact.html" class="btn btn-primary">
+                    <i class="fas fa-calendar-check"></i> Réserver un Appel Découverte
+                </a>
+                <a href="contact.html?subject=devenir-distributeur" class="btn btn-secondary">
+                    <i class="fas fa-users"></i> Rejoindre Mon Équipe
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon"><img src="assets/images/logo-ben36.png" alt="BEN36"></div>
+                        <div class="logo-text">
+                            <span class="logo-title" style="color: white;">BEN36</span>
+                            <span class="logo-subtitle">Bien-être Naturel</span>
+                        </div>
+                    </a>
+                    <p>Conseiller Super Patch et Coach Bien-être indépendant. Votre partenaire pour une vie plus saine.</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="products.html">Produits</a></li>
+                        <li><a href="about.html">À Propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Ressources</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://bit.ly/SP-Boutique" target="_blank">Boutique Officielle</a></li>
+                        <li><a href="https://maviia95.github.io/atomy-maviia95/" target="_blank">ATOMY</a></li>
+                        <li><a href="https://benmanager.kneo.me/home" target="_blank">Ben Manager Labs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Aisne (02), France</li>
+                        <li><a href="mailto:bienetrenaturel36@gmail.com">bienetrenaturel36@gmail.com</a></li>
+                        <li><a href="tel:+33680244077">+33 6 80 24 40 77</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ben 36 - Ben Manager Labs. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, easing: 'ease-in-out', once: true, offset: 100 });
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 50); });
+        
+        // Lightbox
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxClose = document.getElementById('lightboxClose');
+
+        function openLightbox(src) {
+            lightboxImg.src = src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+    </script>
+</body>
+</html>
