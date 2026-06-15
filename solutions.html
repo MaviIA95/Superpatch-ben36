@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solutions de Prévention | Super Patch BEN36 - Anticipez Votre Santé</title>
+    <meta name="description" content="Programme de prévention Super Patch : 3 mois pour renforcer votre système immunitaire, émotionnel et digestif avant qu'il ne soit trop tard.">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --turquoise: #1ABC9C; --turquoise-dark: #16A085; --turquoise-light: #48C9B0;
+            --blue: #2E86AB; --dark-blue: #1B4F72; --orange: #F39C12; --yellow: #F1C40F;
+            --dark: #2C3E50; --light: #ECF0F1; --white: #FFFFFF;
+            --gradient-primary: linear-gradient(135deg, #1ABC9C 0%, #2E86AB 100%);
+            --gradient-gold: linear-gradient(135deg, #F39C12 0%, #F1C40F 100%);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; color: var(--dark); overflow-x: hidden; background: var(--white); }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+        a { text-decoration: none; }
+
+        /* === NAVBAR === */
+        .navbar { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0,0,0,0.1); z-index: 1000; transition: all 0.3s ease; }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 1rem; }
+        .logo-icon { width: 50px; height: 50px; border-radius: 50%; overflow: hidden; box-shadow: 0 4px 15px rgba(26,188,156,0.4); }
+        .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+        .logo-text { display: flex; flex-direction: column; }
+        .logo-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--dark); line-height: 1; }
+        .logo-subtitle { font-size: 0.75rem; color: var(--turquoise); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--turquoise); }
+        .nav-cta { background: var(--gradient-primary); color: white !important; padding: 0.8rem 1.8rem; border-radius: 50px; box-shadow: 0 4px 15px rgba(26,188,156,0.4); }
+
+        /* === HERO SOLUTIONS === */
+        .solutions-hero { 
+            margin-top: 80px; 
+            padding: 8rem 2rem; 
+            background: linear-gradient(135deg, rgba(26,188,156,0.1) 0%, rgba(46,134,171,0.15) 100%); 
+            text-align: center; 
+            position: relative;
+            overflow: hidden;
+        }
+        .solutions-hero::before {
+            content: ''; position: absolute; top: -50%; right: -20%; width: 800px; height: 800px;
+            background: radial-gradient(circle, rgba(26,188,156,0.15) 0%, transparent 70%); border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+        @keyframes float { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(30px, -30px); } }
+        
+        .solutions-hero h1 { font-size: 3.5rem; margin-bottom: 1.5rem; color: var(--dark); position: relative; z-index: 1; }
+        .solutions-hero h1 span { background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .solutions-hero p { font-size: 1.3rem; max-width: 900px; margin: 0 auto 2rem; color: var(--blue); position: relative; z-index: 1; }
+        .prevention-badge {
+            display: inline-block; background: var(--gradient-gold); color: white;
+            padding: 0.8rem 2rem; border-radius: 50px; font-weight: 700; font-size: 1.1rem;
+            margin-top: 2rem; box-shadow: 0 10px 30px rgba(243,156,18,0.3);
+        }
+
+        /* === SECTIONS GÉNÉRIQUES === */
+        .section { padding: 6rem 2rem; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-tag { display: inline-block; background: var(--gradient-primary); color: white; padding: 0.5rem 1.5rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; }
+        .section-title { font-size: 2.8rem; color: var(--dark); margin-bottom: 1rem; }
+        .section-subtitle { font-size: 1.2rem; color: var(--blue); max-width: 800px; margin: 0 auto; }
+
+        /* === PHILOSOPHIE PRÉVENTION === */
+        .prevention-philosophy { background: white; }
+        .philosophy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: center; }
+        .philosophy-content h3 { font-size: 2rem; margin-bottom: 1.5rem; color: var(--dark); }
+        .philosophy-content p { font-size: 1.1rem; line-height: 1.8; color: var(--dark); opacity: 0.9; margin-bottom: 1.5rem; }
+        .philosophy-image { text-align: center; }
+        .philosophy-image i { font-size: 8rem; color: var(--turquoise); opacity: 0.3; }
+
+        /* === PROGRAMME 3 MOIS === */
+        .program-section { background: linear-gradient(135deg, rgba(44,62,80,0.03) 0%, rgba(27,79,114,0.03) 100%); }
+        .program-timeline { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
+        .program-card {
+            background: white; border-radius: 25px; overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.08); transition: all 0.4s ease;
+            position: relative; border-top: 5px solid var(--turquoise);
+        }
+        .program-card:hover { transform: translateY(-10px); box-shadow: 0 25px 70px rgba(0,0,0,0.15); }
+        .program-card:nth-child(2) { border-top-color: var(--blue); }
+        .program-card:nth-child(3) { border-top-color: var(--orange); }
+        
+        .program-header {
+            padding: 2rem; text-align: center; position: relative;
+            background: linear-gradient(135deg, rgba(26,188,156,0.05) 0%, rgba(46,134,171,0.05) 100%);
+        }
+        .program-card:nth-child(2) .program-header { background: linear-gradient(135deg, rgba(46,134,171,0.05) 0%, rgba(27,79,114,0.05) 100%); }
+        .program-card:nth-child(3) .program-header { background: linear-gradient(135deg, rgba(243,156,18,0.05) 0%, rgba(241,196,15,0.05) 100%); }
+        
+        .month-badge {
+            display: inline-block; background: var(--gradient-primary); color: white;
+            padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; font-size: 0.9rem;
+            margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .program-card:nth-child(2) .month-badge { background: linear-gradient(135deg, #2E86AB, #1B4F72); }
+        .program-card:nth-child(3) .month-badge { background: var(--gradient-gold); }
+        
+        .program-title { font-size: 1.8rem; color: var(--dark); margin-bottom: 0.5rem; }
+        .program-subtitle { font-size: 1rem; color: var(--turquoise); font-weight: 600; }
+        
+        .program-image { text-align: center; padding: 2rem; background: #f8f9fa; }
+        .program-image img { max-width: 180px; height: auto; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        
+        .program-content { padding: 2rem; }
+        .program-content h4 { font-size: 1.3rem; color: var(--dark); margin-bottom: 1rem; }
+        .program-content p { font-size: 1rem; line-height: 1.7; color: var(--dark); opacity: 0.85; margin-bottom: 1rem; }
+        .program-benefits { list-style: none; margin-top: 1.5rem; }
+        .program-benefits li {
+            padding: 0.8rem 0; padding-left: 2.5rem; position: relative;
+            font-size: 0.95rem; color: var(--dark);
+        }
+        .program-benefits li::before {
+            content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
+            position: absolute; left: 0; color: var(--turquoise); font-size: 1.1rem;
+        }
+
+        /* === AVANTAGES PRÉVENTION === */
+        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .benefit-card {
+            background: white; padding: 2.5rem 2rem; border-radius: 20px;
+            text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+            transition: all 0.3s ease; border: 2px solid transparent;
+        }
+        .benefit-card:hover { transform: translateY(-8px); border-color: var(--turquoise); box-shadow: 0 20px 60px rgba(0,0,0,0.12); }
+        .benefit-icon {
+            width: 80px; height: 80px; background: var(--gradient-primary);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 2.2rem; margin: 0 auto 1.5rem;
+        }
+        .benefit-title { font-size: 1.3rem; margin-bottom: 1rem; color: var(--dark); }
+        .benefit-text { font-size: 0.95rem; color: var(--dark); opacity: 0.85; line-height: 1.6; }
+
+        /* === CTA FINAL === */
+        .cta-section { padding: 6rem 2rem; background: var(--gradient-primary); text-align: center; color: white; }
+        .cta-section h2 { font-size: 3rem; margin-bottom: 1.5rem; }
+        .cta-section p { font-size: 1.3rem; margin-bottom: 2.5rem; opacity: 0.95; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .btn { padding: 1rem 2.5rem; border-radius: 50px; font-weight: 600; font-size: 1rem; display: inline-flex; align-items: center; gap: 0.8rem; transition: all 0.3s ease; border: none; cursor: pointer; }
+        .btn-white { background: white; color: var(--turquoise); }
+        .btn-white:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .btn-outline { background: transparent; color: white; border: 2px solid white; }
+        .btn-outline:hover { background: white; color: var(--turquoise); transform: translateY(-3px); }
+
+        /* === WHATSAPP FLOATING BUTTON === */
+        .whatsapp-float {
+            position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; color: white; font-size: 2.2rem;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); z-index: 9999; cursor: pointer;
+            transition: all 0.3s ease; text-decoration: none; animation: pulse-whatsapp 2s infinite;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6); }
+        .whatsapp-float::before {
+            content: ''; position: absolute; width: 100%; height: 100%; border-radius: 50%;
+            background: rgba(37, 211, 102, 0.3); animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        }
+        @keyframes pulse-whatsapp { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        @keyframes pulse-ring { 0% { width: 100%; height: 100%; opacity: 1; } 100% { width: 150%; height: 150%; opacity: 0; } }
+        .whatsapp-tooltip {
+            position: absolute; right: 80px; background: white; color: var(--dark);
+            padding: 0.8rem 1.2rem; border-radius: 10px; font-size: 0.9rem; font-weight: 600;
+            white-space: nowrap; box-shadow: 0 5px 15px rgba(0,0,0,0.2); opacity: 0;
+            pointer-events: none; transition: opacity 0.3s ease;
+        }
+        .whatsapp-float:hover .whatsapp-tooltip { opacity: 1; }
+        .whatsapp-tooltip::after {
+            content: ''; position: absolute; right: -8px; top: 50%; transform: translateY(-50%);
+            width: 0; height: 0; border-left: 8px solid white; border-top: 8px solid transparent; border-bottom: 8px solid transparent;
+        }
+
+        /* === FOOTER === */
+        .footer { background: var(--dark); color: white; padding: 4rem 2rem 2rem; }
+        .footer-container { max-width: 1400px; margin: 0 auto; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .footer-brand p { margin-top: 1rem; opacity: 0.8; }
+        .footer-title { font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--turquoise); font-weight: 600; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.8rem; }
+        .footer-links a { color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s ease; }
+        .footer-links a:hover { opacity: 1; color: var(--turquoise); }
+        .social-links { display: flex; gap: 1rem; margin-top: 1.5rem; }
+        .social-links a { width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; transition: all 0.3s ease; }
+        .social-links a:hover { background: var(--turquoise); transform: translateY(-3px); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; text-align: center; opacity: 0.7; font-size: 0.9rem; }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) { .nav-links { display: none; } .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 768px) { 
+            .solutions-hero h1 { font-size: 2.5rem; } 
+            .section-title { font-size: 2rem; } 
+            .footer-grid { grid-template-columns: 1fr; } 
+            .whatsapp-float { width: 55px; height: 55px; bottom: 20px; right: 20px; font-size: 1.8rem; }
+            .whatsapp-tooltip { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/33680244077?text=Bonjour%20Ben%2036,%20je%20souhaite%20en%20savoir%20plus%20sur%20le%20programme%20de%20prévention" 
+       target="_blank" 
+       class="whatsapp-float"
+       title="Contactez-moi sur WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Besoin de conseils ? Écrivez-moi !</span>
+    </a>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><img src="assets/images/logo-ben36.png" alt="BEN36"></div>
+                <div class="logo-text">
+                    <span class="logo-title">BEN36</span>
+                    <span class="logo-subtitle">Bien Être Naturel</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="products.html">Produits</a></li>
+                <li><a href="about.html">À Propos</a></li>
+                <li><a href="solutions.html" style="color: var(--turquoise);">Solutions</a></li>
+                <li><a href="testimonials.html">Témoignages</a></li>
+                <li><a href="contact.html" class="nav-cta">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="solutions-hero">
+        <div class="container" data-aos="fade-up">
+            <h1>Prévenez Avant de <span>Guérir</span></h1>
+            <p>
+                Même sans pathologie déclarée, votre corps a besoin d'être soutenu et renforcé. 
+                La prévention est la clé pour éviter le "crash" et maintenir une vitalité optimale au quotidien.
+            </p>
+            <div class="prevention-badge">
+                <i class="fas fa-shield-alt"></i> Programme Prévention 3 Mois
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophie Prévention -->
+    <section class="section prevention-philosophy">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Pourquoi Prévenir ?</span>
+                <h2 class="section-title">Mieux Vaut Prévenir que Guérir</h2>
+                <p class="section-subtitle">
+                    Notre corps est une machine extraordinaire qui s'autorégule. Mais avec le stress, 
+                    la pollution et les mauvaises habitudes, il a besoin d'un coup de pouce.
+                </p>
+            </div>
+
+            <div class="philosophy-grid">
+                <div class="philosophy-content" data-aos="fade-right">
+                    <h3>Anticipez Votre Santé</h3>
+                    <p>
+                        Attendre d'être malade pour agir, c'est comme attendre que la voiture tombe en panne 
+                        pour faire la vidange. La prévention vous permet de maintenir votre corps en état optimal 
+                        et d'éviter les problèmes avant qu'ils n'apparaissent.
+                    </p>
+                    <p>
+                        Le programme de prévention Super Patch agit en profondeur sur vos systèmes vitaux : 
+                        immunitaire, émotionnel et digestif. Trois piliers essentiels pour une santé de fer.
+                    </p>
+                    <div style="margin-top: 2rem;">
+                        <i class="fas fa-heartbeat" style="font-size: 4rem; color: var(--turquoise); opacity: 0.3;"></i>
+                    </div>
+                </div>
+                <div class="philosophy-image" data-aos="fade-left">
+                    <i class="fas fa-shield-virus"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programme 3 Mois -->
+    <section class="section program-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Programme Complet</span>
+                <h2 class="section-title">3 Mois pour Transformer Votre Santé</h2>
+                <p class="section-subtitle">
+                    Un protocole progressif et ciblé pour renforcer vos systèmes vitaux 
+                    et retrouver une énergie durable.
+                </p>
+            </div>
+
+            <div class="program-timeline">
+                <!-- Mois 1 -->
+                <div class="program-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="program-header">
+                        <span class="month-badge">1er Mois</span>
+                        <h3 class="program-title">LIBERTY + DEFEND</h3>
+                        <p class="program-subtitle">Renforcement Immunitaire</p>
+                    </div>
+                    <div class="program-image">
+                        <img src="assets/images/pack-liberty.jpg" alt="Liberty Patch">
+                        <img src="assets/images/pack-defend.jpg" alt="Defend Patch" style="margin-left: 1rem;">
+                    </div>
+                    <div class="program-content">
+                        <h4>Soutenez Votre Système Immunitaire</h4>
+                        <p>
+                            Le premier mois est consacré au renforcement de vos défenses naturelles. 
+                            Liberty et Defend travaillent en synergie pour optimiser votre homéostasie 
+                            et protéger votre organisme.
+                        </p>
+                        <ul class="program-benefits">
+                            <li>Renforcement du système immunitaire</li>
+                            <li>Protection contre les agressions extérieures</li>
+                            <li>Amélioration de la circulation sanguine</li>
+                            <li>Régulation de l'homéostasie</li>
+                            <li>Prévention des maladies saisonnières</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Mois 2 -->
+                <div class="program-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="program-header">
+                        <span class="month-badge">2ème Mois</span>
+                        <h3 class="program-title">LIBERTY + PEACE</h3>
+                        <p class="program-subtitle">Équilibre Émotionnel & Anti-Stress</p>
+                    </div>
+                    <div class="program-image">
+                        <img src="assets/images/pack-liberty.jpg" alt="Liberty Patch">
+                        <img src="assets/images/pack-peace.jpg" alt="Peace Patch" style="margin-left: 1rem;">
+                    </div>
+                    <div class="program-content">
+                        <h4>Apaisez Votre Système Émotionnel</h4>
+                        <p>
+                            Le stress et les émotions négatives impactent directement votre santé. 
+                            Ce deuxième mois vise à rééquilibrer votre système nerveux et à retrouver 
+                            sérénité et calme intérieur.
+                        </p>
+                        <ul class="program-benefits">
+                            <li>Réduction du stress et de l'anxiété</li>
+                            <li>Amélioration de la qualité du sommeil</li>
+                            <li>Équilibre émotionnel durable</li>
+                            <li>Meilleure gestion des émotions</li>
+                            <li>Clarté mentale accrue</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Mois 3 -->
+                <div class="program-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="program-header">
+                        <span class="month-badge">3ème Mois</span>
+                        <h3 class="program-title">LIBERTY + IGNITE</h3>
+                        <p class="program-subtitle">Optimisation Digestive & Métabolique</p>
+                    </div>
+                    <div class="program-image">
+                        <img src="assets/images/pack-liberty.jpg" alt="Liberty Patch">
+                        <img src="assets/images/pack-ignite.jpg" alt="Ignite Patch" style="margin-left: 1rem;">
+                    </div>
+                    <div class="program-content">
+                        <h4>Boostez Votre Système Digestif</h4>
+                        <p>
+                            Un système digestif sain est la clé d'une santé optimale. Ce troisième mois 
+                            optimise votre métabolisme, améliore l'assimilation des nutriments et 
+                            favorise l'élimination des toxines.
+                        </p>
+                        <ul class="program-benefits">
+                            <li>Optimisation du métabolisme</li>
+                            <li>Meilleure digestion et assimilation</li>
+                            <li>Élimination des toxines</li>
+                            <li>Régulation du poids</li>
+                            <li>Énergie et vitalité retrouvées</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avantages Prévention -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Les Bénéfices</span>
+                <h2 class="section-title">Pourquoi Choisir la Prévention ?</h2>
+                <p class="section-subtitle">
+                    Investir dans votre santé aujourd'hui, c'est garantir votre bien-être de demain.
+                </p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card" data-aos="zoom-in">
+                    <div class="benefit-icon"><i class="fas fa-procedures"></i></div>
+                    <h3 class="benefit-title">Évitez le Crash</h3>
+                    <p class="benefit-text">
+                        Prévenez l'épuisement et le burn-out avant qu'ils n'arrivent. 
+                        Maintenez votre énergie au quotidien.
+                    </p>
+                </div>
+
+                <div class="benefit-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="benefit-title">Renforcez Vos Défenses</h3>
+                    <p class="benefit-text">
+                        Un système immunitaire fort vous protège des maladies et infections. 
+                        Moins de rhumes, plus de vitalité.
+                    </p>
+                </div>
+
+                <div class="benefit-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="benefit-icon"><i class="fas fa-brain"></i></div>
+                    <h3 class="benefit-title">Clarté Mentale</h3>
+                    <p class="benefit-text">
+                        Un esprit équilibré et un système nerveux apaisé pour une meilleure 
+                        concentration et prise de décision.
+                    </p>
+                </div>
+
+                <div class="benefit-card" data-aos="zoom-in">
+                    <div class="benefit-icon"><i class="fas fa-heart"></i></div>
+                    <h3 class="benefit-title">Longévité</h3>
+                    <p class="benefit-text">
+                        Prendre soin de votre corps aujourd'hui, c'est investir dans 
+                        votre santé et votre autonomie de demain.
+                    </p>
+                </div>
+
+                <div class="benefit-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="benefit-icon"><i class="fas fa-bolt"></i></div>
+                    <h3 class="benefit-title">Énergie Durable</h3>
+                    <p class="benefit-text">
+                        Fini les coups de barre et la fatigue chronique. 
+                        Retrouvez une énergie stable tout au long de la journée.
+                    </p>
+                </div>
+
+                <div class="benefit-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="benefit-icon"><i class="fas fa-smile"></i></div>
+                    <h3 class="benefit-title">Qualité de Vie</h3>
+                    <p class="benefit-text">
+                        Vivez pleinement chaque jour sans être limité par la fatigue, 
+                        le stress ou les petits maux du quotidien.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+        <div class="container" data-aos="zoom-in">
+            <h2>Prêt à Investir dans Votre Santé ?</h2>
+            <p>
+                Ne laissez pas le temps faire son œuvre. Commencez dès maintenant votre programme 
+                de prévention et retrouvez une vitalité optimale. Je vous accompagne pas à pas 
+                dans cette démarche.
+            </p>
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                <a href="contact.html" class="btn btn-white">
+                    <i class="fas fa-calendar-check"></i> Réserver un Appel Conseil
+                </a>
+                <a href="products.html" class="btn btn-outline">
+                    <i class="fas fa-shopping-cart"></i> Découvrir les Patchs
+                </a>
+            </div>
+            <p style="margin-top: 2rem; font-size: 1rem; opacity: 0.9;">
+                <i class="fas fa-info-circle"></i> Pour toute question ou suivi personnalisé, contactez-moi directement
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon"><img src="assets/images/logo-ben36.png" alt="BEN36"></div>
+                        <div class="logo-text">
+                            <span class="logo-title" style="color: white;">BEN36</span>
+                            <span class="logo-subtitle">Bien-être Naturel</span>
+                        </div>
+                    </a>
+                    <p>Conseiller Super Patch et Coach Bien-être indépendant. Votre partenaire pour une vie plus saine.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/Laurent02600" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/in/laurent-mavi-nmp/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="contact.html"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="products.html">Produits</a></li>
+                        <li><a href="about.html">À Propos</a></li>
+                        <li><a href="solutions.html">Solutions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Ressources</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://bit.ly/SP-Boutique" target="_blank">Boutique Officielle</a></li>
+                        <li><a href="https://maviia95.github.io/atomy-maviia95/" target="_blank">ATOMY</a></li>
+                        <li><a href="https://benmanager.kneo.me/home" target="_blank">Ben Manager Labs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Villers-Cotterêts (02), France</li>
+                        <li><a href="contact.html">Formulaire de contact</a></li>
+                        <li><a href="tel:+33680244077">+33 6 80 24 40 77</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ben 36 - Ben Manager Labs. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, easing: 'ease-in-out', once: true, offset: 100 });
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 50); });
+    </script>
+</body>
+</html>
