@@ -88,8 +88,22 @@
         .info-card:hover .info-icon { transform: scale(1.1) rotate(5deg); }
         .info-card.whatsapp-card .info-icon { background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); }
         .info-title { font-size: 1.3rem; margin-bottom: 1rem; color: var(--dark); }
-        .info-text { font-size: 1rem; color: var(--dark); opacity: 0.8; line-height: 1.6; }
-        .info-link { color: var(--turquoise); font-weight: 600; transition: color 0.3s ease; }
+       .info-text { 
+    font-size: 0.95rem; 
+    color: var(--dark); 
+    opacity: 0.8; 
+    line-height: 1.6;
+    word-break: break-all; /* Ajoute ça */
+    padding: 0 0.5rem; /* Ajoute ça */
+}
+
+.info-link { 
+    color: var(--turquoise); 
+    font-weight: 600; 
+    transition: color 0.3s ease;
+    display: inline-block; /* Ajoute ça */
+    max-width: 100%; /* Ajoute ça */
+}
         .info-link:hover { color: var(--turquoise-dark); }
 
         /* === FORMULAIRE PREMIUM === */
