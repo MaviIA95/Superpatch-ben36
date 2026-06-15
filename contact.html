@@ -73,7 +73,12 @@
         .section-subtitle { font-size: 1.2rem; color: var(--blue); max-width: 700px; margin: 0 auto; }
 
         /* === COORDONNÉES (Cartes interactives) === */
-        .contact-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
+     .contact-info { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* AGRANDI de 250 à 280 */
+    gap: 2rem; 
+    margin-bottom: 4rem; 
+}
         .info-card { 
             background: white; padding: 2.5rem 2rem; border-radius: 20px; text-align: center; 
             box-shadow: 0 10px 40px rgba(0,0,0,0.05); transition: all 0.4s ease; 
@@ -89,20 +94,19 @@
         .info-card.whatsapp-card .info-icon { background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); }
         .info-title { font-size: 1.3rem; margin-bottom: 1rem; color: var(--dark); }
        .info-text { 
-    font-size: 0.95rem; 
+    font-size: 0.9rem; 
     color: var(--dark); 
     opacity: 0.8; 
     line-height: 1.6;
-    word-break: break-all; /* Ajoute ça */
-    padding: 0 0.5rem; /* Ajoute ça */
+    text-align: center;
+    word-break: break-word;
 }
 
 .info-link { 
     color: var(--turquoise); 
     font-weight: 600; 
     transition: color 0.3s ease;
-    display: inline-block; /* Ajoute ça */
-    max-width: 100%; /* Ajoute ça */
+    font-size: 0.85rem; /* Police réduite pour l'email */
 }
         .info-link:hover { color: var(--turquoise-dark); }
 
