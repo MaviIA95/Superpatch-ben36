@@ -378,7 +378,7 @@
         </div>
     </section>
 
-    <!-- Galerie Photos -->
+        <!-- Galerie Photos -->
     <section class="section">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
@@ -387,7 +387,8 @@
                 <p class="section-subtitle">7 ans d'événements en Europe, de rencontres et d'apprentissages.</p>
             </div>
 
-            <div class="gallery-grid">
+            <!-- Grille de photos (4 photos) -->
+            <div class="gallery-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
                 <div class="gallery-item" data-aos="zoom-in" onclick="openLightbox('assets/images/laurent-jay.jpg')">
                     <img src="assets/images/laurent-jay.jpg" alt="Avec Jay Dhaliwal">
                 </div>
@@ -400,9 +401,16 @@
                 <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300" onclick="openLightbox('assets/images/laurent-groupe2.jpg')">
                     <img src="assets/images/laurent-groupe2.jpg" alt="Conférence Super Patch">
                 </div>
-                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400" onclick="openLightbox('assets/images/gamme-produits.jpg')">
-                    <img src="assets/images/gamme-produits.jpg" alt="Gamme complète Super Patch">
+            </div>
+
+            <!-- Image des patchs en dessous -->
+            <div style="margin-top: 3rem; text-align: center;" data-aos="fade-up" data-aos-delay="400">
+                <div style="display: inline-block; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 50px rgba(0,0,0,0.15);">
+                    <img src="assets/images/gamme-produits.jpg" alt="Gamme complète Super Patch" style="max-width: 100%; height: auto; display: block;">
                 </div>
+                <p style="margin-top: 1.5rem; font-size: 1.1rem; color: var(--turquoise); font-weight: 600;">
+                    <i class="fas fa-box-open"></i> La Gamme Complète Super Patch
+                </p>
             </div>
         </div>
     </section>
